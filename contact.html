@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Ticket Booking</title>
+    <link rel="icon" href="./assets/bg remove.webp">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+
+    <link rel="stylesheet" href="./root.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+
+<body>
+
+    <header class="site-header style-modern">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="./assets/stackly.webp" alt="logo" width="150px" height="50px">
+            </a>
+
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="book.html" class="nav-link">Book Flights</a></li>
+                    <li><a href="trips.html" class="nav-link">Manage Trips</a></li>
+                    <li><a href="status.html" class="nav-link">Flight Status</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="contact.html" class="btn btn-secondary active">Contact</a>
+                <a href="auth.html" class="btn btn-primary">Sign Up</a>
+            </div>
+
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+
+        <div class="mobile-drawer">
+            <nav class="mobile-nav">
+                <ul class="mobile-nav-list">
+                    <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                    <li><a href="book.html" class="mobile-nav-link active">Book Flights</a></li>
+                    <li><a href="trips.html" class="mobile-nav-link">Manage Trips</a></li>
+                    <li><a href="status.html" class="mobile-nav-link">Flight Status</a></li>
+                </ul>
+                <div class="mobile-actions">
+                    <a href="contact.html" class="btn btn-secondary active">Contact</a>
+                    <a href="auth.html" class="btn btn-primary">Sign Up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+
+
+
+
+    <section class="contact-hero-section">
+        <div class="contact-blur-ambient"></div>
+        <div class="container contact-hero-container">
+
+            <!-- Left Column: Premium Headline & Live Status Briefing -->
+            <div class="contact-intro-content" data-aos="fade-right" data-aos-duration="1000">
+                <span class="section-badge"><i class="fas fa-headset"></i> Global Concierge</span>
+                <h1>We Are Here to Refine Your Journey</h1>
+                <p>Connect seamlessly with our premium flight operations desk. Whether coordinating group corporate
+                    allocations, specialized routing manifests, or immediate travel adjustments, our agents remain
+                    standing by.</p>
+
+                <!-- Operations Live Status Channel Grid -->
+                <div class="ops-status-grid">
+                    <div class="ops-status-card">
+                        <div class="ops-card-header">
+                            <span class="ops-pulse-dot green"></span>
+                            <h5>Phone Routing Engine</h5>
+                        </div>
+                        <strong><a href="tel:+18005550199">+1 (800) 555-0199</a></strong>
+                        <span>Average wait time: 45 seconds</span>
+                    </div>
+
+                    <div class="ops-status-card">
+                        <div class="ops-card-header">
+                            <span class="ops-pulse-dot blue"></span>
+                            <h5>Secure Digital Chat</h5>
+                        </div>
+                        <strong>Live In-App Channel</strong>
+                        <span>Average response: &lt; 2 minutes</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Premium High-Contrast Contact Card Block -->
+            <div class="contact-summary-card card-shadow-velvet card-glow-border" data-aos="fade-left"
+                data-aos-duration="1000">
+                <div class="summary-card-header">
+                    <h3>Corporate Headquarters</h3>
+                    <p>Official communication hubs for institutional relations.</p>
+                </div>
+
+                <ul class="corporate-details-list">
+                    <li>
+                        <div class="detail-icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="detail-text-box">
+                            <span>Global Operations Base</span>
+                            <strong>600 Fifth Avenue, Plaza Level<br>New York, NY 10020</strong>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="detail-icon-box"><i class="fas fa-envelope-open-text"></i></div>
+                        <div class="detail-text-box">
+                            <span>Electronic Mail Operations</span>
+                            <strong><a href="mailto:concierge@skypass.com">concierge@skypass.com</a></strong>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="detail-icon-box"><i class="fas fa-building"></i></div>
+                        <div class="detail-text-box">
+                            <span>Institutional Media Relations</span>
+                            <strong><a href="mailto:press@skypass.com">press@skypass.com</a></strong>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <section class="secure-message-section" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container message-container">
+
+            <!-- Section Title & Priority Routing Matrix Badge -->
+            <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+                <span class="section-badge">Encrypted Portal</span>
+                <h2>Initialize Priority Correspondence</h2>
+                <p>Direct your query directly to specialized travel subdivisions. Inbound tokens automatically queue
+                    based on status tier allocation.</p>
+            </div>
+
+            <!-- Core Interactive Form Canvas Card -->
+            <div class="secure-form-card card-shadow-velvet card-glow-border" data-aos="fade-up" data-aos-delay="100">
+                <form class="secure-portal-form" action="error.html" method="POST">
+
+                    <div class="form-dual-row">
+                        <!-- Input Field 1: Full Name -->
+                        <div class="portal-input-group">
+                            <label for="portalName"><i class="fas fa-id-card"></i> Full Passenger Name</label>
+                            <div class="input-focus-wrapper">
+                                <input type="text" id="portalName" placeholder="e.g., Marcus Vance" required>
+                                <span class="focus-bar"></span>
+                            </div>
+                        </div>
+
+                        <!-- Input Field 2: Email -->
+                        <div class="portal-input-group">
+                            <label for="portalEmail"><i class="fas fa-envelope"></i> Digital Mail Identity</label>
+                            <div class="input-focus-wrapper">
+                                <input type="email" id="portalEmail" placeholder="e.g., marcus@vance.com" required>
+                                <span class="focus-bar"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-dual-row">
+                        <!-- Input Field 3: Ticket Reference -->
+                        <div class="portal-input-group">
+                            <label for="portalPnr"><i class="fas fa-ticket-alt"></i> Booking Reference
+                                (Optional)</label>
+                            <div class="input-focus-wrapper">
+                                <input type="text" id="portalPnr" placeholder="e.g., X7Y3PL" maxlength="6">
+                                <span class="focus-bar"></span>
+                            </div>
+                        </div>
+
+                        <div class="portal-input-group">
+                            <label for="portalDept"><i class="fas fa-layer-group"></i> Sub-Department Assignment</label>
+
+                            <div class="custom-select-wrapper portal-custom-select-wrapper">
+                                <div class="custom-select-btn" onclick="toggleCustomSelect(this, event)">
+                                    <span class="selected-dropdown-text">Premium Flight Concierge</span>
+                                    <i class="fas fa-chevron-down arrow-indicator"></i>
+                                </div>
+
+                                <ul class="custom-options-list">
+                                    <li data-value="concierge" class="selected" onclick="selectDropdownOption(this)">
+                                        Premium Flight Concierge</li>
+                                    <li data-value="baggage" onclick="selectDropdownOption(this)">Baggage & Logistics
+                                        Division</li>
+                                    <li data-value="corporate" onclick="selectDropdownOption(this)">Corporate Account
+                                        Management</li>
+                                    <li data-value="refunds" onclick="selectDropdownOption(this)">Refund & Compensation
+                                        Desk</li>
+                                </ul>
+
+                                <input type="hidden" id="portalDept" name="department" value="concierge">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input Field 5: Message Textarea Area -->
+                    <div class="portal-input-group full-width">
+                        <label for="portalMessage"><i class="fas fa-pen-nib"></i> Scope of Correspondence</label>
+                        <div class="input-focus-wrapper">
+                            <textarea id="portalMessage" rows="5"
+                                placeholder="Elaborate on your flight operational metrics or inquiry details cleanly..."
+                                required></textarea>
+                            <span class="focus-bar"></span>
+                        </div>
+                    </div>
+
+                    <!-- Submission Trigger Actions Bar -->
+                    <div class="portal-actions-footer">
+                        <div class="security-stamp-notice">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>SSL End-to-End Encryption Terminal Secured</span>
+                        </div>
+                        <button type="submit" class="btn btn-primary dispatch-portal-btn">
+                            Transmit Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <section class="contact-faq-section" data-aos="fade-up" data-aos-duration="1000">
+        <div class="faq-ambient-glow"></div>
+        <div class="container contact-faq-container">
+
+            <!-- Section Header Layer -->
+            <div class="section-header white-theme-header" data-aos="fade-up" data-aos-duration="1000">
+                <span class="section-badge luxury-badge-white">Support Knowledge</span>
+                <h2>Frequently Answered Operations</h2>
+                <p>Instant procedural resolution matrices for corporate cancellations, luggage claim updates, and
+                    priority passport configuration parameters.</p>
+            </div>
+
+            <!-- Accordion Matrix Blocks Container -->
+            <div class="contact-faq-accordion" data-aos="fade-up" data-aos-delay="100">
+
+                <!-- Accordion Item 1 -->
+                <div class="faq-portal-item active">
+                    <button type="button" class="faq-portal-trigger" onclick="toggleContactFaq(this)">
+                        <span>What is the absolute deadline window to adjust premium flight dates?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-portal-content">
+                        <div class="faq-content-padding">
+                            <p>Passengers can adjust digital itinerary parameters up to **24 hours prior** to the
+                                standard departure scheduling lock. Changes executed within the initial 24-hour creation
+                                window incur zero institutional structural change penalties.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion Item 2 -->
+                <div class="faq-portal-item">
+                    <button type="button" class="faq-portal-trigger" onclick="toggleContactFaq(this)">
+                        <span>How do I link an electronic visa or entry clearance token to my profile?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-portal-content">
+                        <div class="faq-content-padding">
+                            <p>Navigate directly to the **Manage Trip** operational cockpit panel, input your 6-digit
+                                PNR alphanumeric code identifier, and upload scanned document configurations under the
+                                travel document verification sub-tab window cleanly.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accordion Item 3 -->
+                <div class="faq-portal-item">
+                    <button type="button" class="faq-portal-trigger" onclick="toggleContactFaq(this)">
+                        <span>What tracking steps should be taken if luggage processing is delayed?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-portal-content">
+                        <div class="faq-content-padding">
+                            <p>Live telemetry metrics map checked tags continuously. In the rare scenario of a timeline
+                                gap, register the unique tag identifier tracking digits at our digital compensation
+                                claim terminal to initialize priority routing handlers.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <section class="contact-escalation-section" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container escalation-container">
+
+            <!-- Left Card: Urgent 24-Hour Hotline -->
+            <div class="escalation-card urgent-track card-shadow-velvet card-glow-border" data-aos="fade-right"
+                data-aos-delay="100">
+                <div class="card-interior-wrapper">
+                    <div class="escalation-header">
+                        <div class="escalation-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                        <span class="escalation-badge-tag hot-red">Priority Line</span>
+                    </div>
+                    <h3>Immediate Flight Disruption</h3>
+                    <p>If your aircraft itinerary is scheduled to depart within the next 48 hours and has experienced a
+                        cancel or critical delay matrix modification, route here immediately.</p>
+
+                    <div class="escalation-action-footer">
+                        <a href="tel:+18005550190" class="btn btn-primary emergency-call-btn">
+                            <i class="fas fa-phone-alt"></i> Priority Desk
+                        </a>
+                        <span class="action-restriction-hint">Requires valid active PNR reference</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Card: Institutional Accounts Desk -->
+            <div class="escalation-card corporate-track card-shadow-velvet card-glow-border" data-aos="fade-left"
+                data-aos-delay="200">
+                <div class="card-interior-wrapper">
+                    <div class="escalation-header">
+                        <div class="escalation-icon"><i class="fas fa-briefcase"></i></div>
+                        <span class="escalation-badge-tag sleek-gold">Corporate B2B</span>
+                    </div>
+                    <h3>Enterprise Travel Operations</h3>
+                    <p>Coordinate centralized corporate global travel portfolios, custom high-volume group pricing
+                        allocations, or dedicated aircraft charter arrangements.</p>
+
+                    <div class="escalation-action-footer">
+                        <a href="error.html" class="btn btn-secondary institutional-btn">
+                            Request Proposal <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <span class="action-restriction-hint">Dedicated account manager assigned</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    <section class="contact-final-cta" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container contact-cta-container">
+
+            <!-- Left Column: Final Reassurance & Live Chat Link -->
+            <div class="cta-direct-box card-glass-premium card-shadow-velvet" data-aos="fade-right"
+                data-aos-delay="100">
+                <span class="urgency-badge"><i class="fas fa-clock"></i> 24/7 Global Coverage</span>
+                <h3>Still Have Questions Regarding Your Flight?</h3>
+                <p>Skip the holding queues entirely. Our premium concierge automation network can handle seat
+                    modifications, baggage track requests, or corporate B2B profile adjustments instantly.</p>
+
+                <div class="cta-action-group">
+                    <a href="trip-status.html" class="btn btn-primary redirect-btn">
+                        Track Flight Status <i class="fas fa-satellite-dish"></i>
+                    </a>
+                    <a href="faq.html" class="btn btn-secondary text-btn">Knowledge Base</a>
+                </div>
+            </div>
+
+            <!-- Right Column: Premium Map/Visual Placeholder Container -->
+            <div class="cta-location-visual card-shadow-velvet card-glow-border" data-aos="fade-left"
+                data-aos-delay="200">
+                <div class="visual-glow-glow"></div>
+                <div class="terminal-map-frame">
+                    <div class="map-coordinates-overlay">
+                        <i class="fas fa-map-pin pin-bounce"></i>
+                        <div class="coord-label">
+                            <strong>JFK Headquarters</strong>
+                            <span>New York, NY</span>
+                        </div>
+                    </div>
+                    <!-- High-contrast architectural visual placeholder for background layout balance -->
+                    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=800&auto=format&fit=crop"
+                        alt="Premium Jetliner Terminal Gate Visual Frame">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <footer class="site-footer style-modern-corporate">
+        <div class="container footer-container">
+
+            <div class="footer-brand-section">
+                <a href="index.html" class="footer-logo">
+                    <img src="./assets/stackly.webp" alt="logo" width="150px" height="50px">
+                </a>
+                <p class="footer-brand-desc">
+                    Explore the world with seamless booking, premium comforts, and unparalleled flight connectivity
+                    across continents.
+                </p>
+                <div class="footer-socials">
+                    <a href="error.html" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="error.html" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="error.html" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="error.html" class="social-icon" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links-section">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links-list">
+                    <li><a href="index.html" class="footer-link active">Home</a></li>
+                    <li><a href="book.html" class="footer-link">Book Flights</a></li>
+                    <li><a href="trips.html" class="footer-link">Manage Trips</a></li>
+                    <li><a href="status.html" class="footer-link">Flight Status</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
+
+                </ul>
+            </div>
+
+            <div class="footer-links-section">
+                <h4 class="footer-heading">Support</h4>
+                <ul class="footer-links-list">
+                    <li><a href="error.html" class="footer-link">Help Center</a></li>
+                    <li><a href="error.html" class="footer-link">Baggage Info</a></li>
+                    <li><a href="error.html" class="footer-link">Refund Policy</a></li>
+                    <li><a href="error.html" class="footer-link">Travel Advisory</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-section">
+                <h4 class="footer-heading">Contact Us</h4>
+                <ul class="footer-contact-list">
+                    <li><i class="fas fa-phone-alt"></i> +1 (800) 555-0199</li>
+                    <li><i class="fas fa-envelope"></i> support@skypass.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 100 Aviation Way, NY</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-container">
+                <p>&copy; 2026 SkyPass Airlines. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="error.html">Privacy Policy</a>
+                    <a href="error.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    </script>
+
+    <script>
+
+        function toggleContactFaq(button) {
+            const currentItem = button.parentElement;
+            const contentBlock = currentItem.querySelector('.faq-portal-content');
+            const allItems = document.querySelectorAll('.faq-portal-item');
+
+            // Collapse open matrices to isolate focus panels cleanly
+            allItems.forEach(item => {
+                if (item !== currentItem && item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-portal-content').style.maxHeight = '0px';
+                }
+            });
+
+            // Toggle state markers on current element targets
+            if (currentItem.classList.contains('active')) {
+                currentItem.classList.remove('active');
+                contentBlock.style.maxHeight = '0px';
+            } else {
+                currentItem.classList.add('active');
+                // Computes target pixel measurements accurately avoiding broken animation parameters
+                contentBlock.style.maxHeight = contentBlock.scrollHeight + "px";
+            }
+        }
+
+        // Optional: Run on execution load profiles to initialize open state sizes seamlessly
+        document.addEventListener('DOMContentLoaded', () => {
+            const activeInitially = document.querySelector('.faq-portal-item.active .faq-portal-content');
+            if (activeInitially) {
+                activeInitially.style.maxHeight = activeInitially.scrollHeight + "px";
+            }
+        });
+
+
+
+
+
+
+        function toggleCustomSelect(element, event) {
+            event.stopPropagation();
+            const wrapper = element.parentElement;
+
+            document.querySelectorAll('.custom-select-wrapper').forEach(el => {
+                if (el !== wrapper) el.classList.remove('dropdown-active');
+            });
+
+            wrapper.classList.toggle('dropdown-active');
+        }
+
+        function selectDropdownOption(listItem) {
+            const wrapper = listItem.closest('.custom-select-wrapper');
+            const txtLabel = wrapper.querySelector('.selected-dropdown-text');
+            const hiddenInput = wrapper.querySelector('input[type="hidden"]');
+
+            // Clean prior active markers within options list tracking indices
+            wrapper.querySelectorAll('.custom-options-list li').forEach(li => li.classList.remove('selected'));
+            listItem.classList.add('selected');
+
+            const chosenVal = listItem.getAttribute('data-value');
+            const chosenText = listItem.textContent;
+
+            txtLabel.textContent = chosenText;
+            hiddenInput.value = chosenVal;
+
+            wrapper.classList.remove('dropdown-active');
+            console.log(`Routing vector reassigned: ${hiddenInput.id} set to targeted subdivision token "${chosenVal}"`);
+        }
+
+        // Global window event click handler to collapse active menus on outside interactions
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.custom-select-wrapper').forEach(el => {
+                el.classList.remove('dropdown-active');
+            });
+        });
+
+
+    </script>
+
+</body>
+
+</html>

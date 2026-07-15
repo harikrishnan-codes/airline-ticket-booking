@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airline Ticket Booking</title>
+  <link rel="icon" href="./assets/bg remove.webp">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="book.css">
+  <link rel="stylesheet" href="./root.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+
+<body>
+
+  <header class="site-header style-modern">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="./assets/stackly.webp" alt="logo" width="150px" height="50px">
+      </a>
+
+      <nav class="desktop-nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="book.html" class="nav-link">Book Flights</a></li>
+          <li><a href="trips.html" class="nav-link">Manage Trips</a></li>
+          <li><a href="status.html" class="nav-link">Flight Status</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="contact.html" class="btn btn-secondary">Contact</a>
+        <a href="auth.html" class="btn btn-primary">Sign Up</a>
+      </div>
+
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+
+    <div class="mobile-drawer">
+      <nav class="mobile-nav">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="book.html" class="mobile-nav-link active">Book Flights</a></li>
+          <li><a href="trips.html" class="mobile-nav-link">Manage Trips</a></li>
+          <li><a href="status.html" class="mobile-nav-link">Flight Status</a></li>
+        </ul>
+        <div class="mobile-actions">
+          <a href="contact.html" class="btn btn-secondary">Contact</a>
+          <a href="auth.html" class="btn btn-primary">Sign Up</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+
+
+
+
+
+  <section class="booking-hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-container">
+      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+        <span class="hero-badge">Flight Reservation</span>
+        <h1>Find Your Perfect Journey</h1>
+        <p>Compare thousands of flight paths, luxury cabin tiers, and flexible booking schedules to build your ideal
+          travel itinerary.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <main class="booking-page-layout">
+    <div class="container booking-page-container">
+
+      <!-- Left Column: Filter Panel Options -->
+      <aside class="filters-sidebar" data-aos="fade-right" data-aos-duration="1000">
+        <div class="sidebar-header">
+          <h4><i class="fas fa-sliders-h"></i> Filter Results</h4>
+          <button type="button" class="clear-filters-btn">Clear All</button>
+        </div>
+
+        <div class="filter-group">
+          <h5>Stops</h5>
+          <label class="filter-checkbox-label">
+            <input type="checkbox" checked>
+            <span class="checkbox-custom"></span>
+            Non-stop
+            <span class="filter-count">($749)</span>
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="checkbox">
+            <span class="checkbox-custom"></span>
+            1 Stop
+            <span class="filter-count">($810)</span>
+          </label>
+          <label class="filter-checkbox-label">
+            <input type="checkbox">
+            <span class="checkbox-custom"></span>
+            2+ Stops
+            <span class="filter-count">($920)</span>
+          </label>
+        </div>
+
+        <div class="filter-group">
+          <h5>Price Range</h5>
+          <div class="price-range-wrapper">
+            <input type="range" min="400" max="2500" value="1500" class="price-slider">
+            <div class="price-labels">
+              <span>$400</span>
+              <strong>Max: $1,500</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h5>Cabin Class</h5>
+          <label class="filter-radio-label">
+            <input type="radio" name="cabin-filter" checked>
+            <span class="radio-custom"></span>
+            Economy Class
+          </label>
+          <label class="filter-radio-label">
+            <input type="radio" name="cabin-filter">
+            <span class="radio-custom"></span>
+            Business Class
+          </label>
+          <label class="filter-radio-label">
+            <input type="radio" name="cabin-filter">
+            <span class="radio-custom"></span>
+            First Class Private Suites
+          </label>
+        </div>
+      </aside>
+
+      <!-- Right Column: Flight Offers Output Matrix -->
+      <section class="flights-output-section" data-aos="fade-left" data-aos-duration="1000">
+        <div class="results-meta-header">
+          <p>Showing <strong>12 Available Flights</strong> from New York (JFK) to Paris (CDG)</p>
+
+          <div class="sort-selector-wrapper">
+            <label><i class="fas fa-sort-amount-down"></i> Sort By:</label>
+
+            <div class="custom-select-wrapper">
+              <div class="custom-select-btn" onclick="toggleCustomSelect(this, event)">
+                <span class="selected-dropdown-text">Cheapest First</span>
+                <i class="fas fa-chevron-down arrow-indicator"></i>
+              </div>
+
+              <ul class="custom-options-list">
+                <li data-value="cheapest" onclick="selectDropdownOption(this)">Cheapest First</li>
+                <li data-value="fastest" onclick="selectDropdownOption(this)">Fastest Flight</li>
+                <li data-value="experience" onclick="selectDropdownOption(this)">Best Experience</li>
+              </ul>
+
+              <input type="hidden" id="flightSortOrder" name="sort_order" value="cheapest">
+            </div>
+
+          </div>
+        </div>
+
+        <div class="flights-list-container">
+
+          <!-- Flight Card 1 -->
+          <div class="flight-result-card" data-aos="fade-up">
+            <div class="card-brand-row">
+              <span class="airline-identity"><i class="fas fa-plane-departure"></i> SkyPass Mainliner</span>
+              <span class="amenity-tag"><i class="fas fa-wifi"></i> Free Wi-Fi</span>
+            </div>
+
+            <div class="card-main-itinerary">
+              <div class="itinerary-node departure-node">
+                <span class="node-time">08:30</span>
+                <span class="node-airport">JFK</span>
+                <span class="node-city">New York</span>
+              </div>
+
+              <div class="itinerary-path-duration">
+                <span class="duration-text">7h 45m</span>
+                <div class="duration-timeline-bar">
+                  <span class="timeline-dot"></span>
+                  <span class="timeline-line"></span>
+                  <span class="timeline-dot"></span>
+                </div>
+                <span class="stop-info non-stop">Non-stop</span>
+              </div>
+
+              <div class="itinerary-node arrival-node">
+                <span class="node-time">22:15</span>
+                <span class="node-airport">CDG</span>
+                <span class="node-city">Paris</span>
+              </div>
+            </div>
+
+            <div class="card-pricing-footer">
+              <div class="pricing-block">
+                <span class="price-label">Total Fare per traveler</span>
+                <h3 class="price-amount">$749</h3>
+              </div>
+              <a href="error.html" class="btn btn-primary select-flight-btn">Select Flight <i
+                  class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+
+          <!-- Flight Card 2 -->
+          <div class="flight-result-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-brand-row">
+              <span class="airline-identity"><i class="fas fa-plane-departure"></i> SkyPass Executive</span>
+              <span class="amenity-tag luxury"><i class="fas fa-couch"></i> Flat-bed Suite</span>
+            </div>
+
+            <div class="card-main-itinerary">
+              <div class="itinerary-node departure-node">
+                <span class="node-time">14:15</span>
+                <span class="node-airport">JFK</span>
+                <span class="node-city">New York</span>
+              </div>
+
+              <div class="itinerary-path-duration">
+                <span class="duration-text">9h 20m</span>
+                <div class="duration-timeline-bar">
+                  <span class="timeline-dot"></span>
+                  <span class="timeline-line"></span>
+                  <span class="timeline-stop-marker"></span>
+                  <span class="timeline-dot"></span>
+                </div>
+                <span class="stop-info has-stops">1 Stop (LHR)</span>
+              </div>
+
+              <div class="itinerary-node arrival-node">
+                <span class="node-time">05:35</span>
+                <span class="node-airport">CDG</span>
+                <span class="node-city">Paris</span>
+              </div>
+            </div>
+
+            <div class="card-pricing-footer">
+              <div class="pricing-block">
+                <span class="price-label">Total Fare per traveler</span>
+                <h3 class="price-amount">$1,280</h3>
+              </div>
+              <a href="error.html" class="btn btn-primary select-flight-btn">Select Flight <i
+                  class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+
+
+
+
+
+
+  <section class="booking-benefits-section" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container benefits-container">
+
+      <div class="benefits-card info-card" data-aos="fade-right" data-aos-delay="100">
+        <div class="benefit-header">
+          <i class="fas fa- briefcase"></i>
+          <h4>Standard Inclusions</h4>
+        </div>
+        <p>All tickets selected via SkyPass include our baseline safety, entertainment, and connection infrastructure
+          guarantees.</p>
+        <ul class="benefit-list">
+          <li><i class="fas fa-check"></i> 1 Personal Item + 1 Carry-On Bag (up to 7kg)</li>
+          <li><i class="fas fa-check"></i> Complimentary Seat Selection during Check-In</li>
+          <li><i class="fas fa-check"></i> Over 300+ On-Demand Movies & Live TV Streams</li>
+          <li><i class="fas fa-check"></i> In-seat USB Power Outlets & Shared Charging Blocks</li>
+        </ul>
+      </div>
+
+      <div class="benefits-card promo-card" data-aos="fade-left" data-aos-delay="200">
+        <div class="benefit-header">
+          <i class="fas fa-shield-halved"></i>
+          <h4>SkyPass Direct Guarantee</h4>
+        </div>
+        <p>By securing your itinerary directly on our terminal layout, you automatically unlock corporate safety
+          protections.</p>
+        <div class="guarantee-grid">
+          <div class="guarantee-item">
+            <i class="fas fa-rotate"></i>
+            <div>
+              <strong>24h Risk-Free Cancellation</strong>
+              <span>Full cash refunds inside a 24-hour booking window.</span>
+            </div>
+          </div>
+          <div class="guarantee-item">
+            <i class="fas fa-bolt"></i>
+            <div>
+              <strong>Instant Price Matching</strong>
+              <span>Found it lower elsewhere? We match it and add 10% points.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <section class="packages-section" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-badge">Curated Journeys</span>
+        <h2>Premium Vacation Curations</h2>
+        <p>Unlock completely integrated travel packages grouping luxury airline routes with elite five-star hotel
+          properties globally.</p>
+      </div>
+
+      <div class="packages-grid">
+
+        <div class="package-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="package-img-box">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=600&auto=format&fit=crop"
+              alt="Maldives">
+            <div class="package-overlay-badge">All Inclusive</div>
+          </div>
+          <div class="package-details">
+            <span class="package-duration">5 Days / 4 Nights</span>
+            <h3>Maldives Island Retreat</h3>
+            <p>Secure premium business flight transfers paired with pristine private overwater bungalows and private
+              lagoon access.</p>
+            <div class="package-price-row">
+              <div class="package-cost">
+                <span>Per Person</span>
+                <strong>$2,499</strong>
+              </div>
+              <a href="error.html" class="package-arrow-link">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="package-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="package-img-box">
+            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=600&auto=format&fit=crop"
+              alt="Santorini">
+            <div class="package-overlay-badge">Honeymoon</div>
+          </div>
+          <div class="package-details">
+            <span class="package-duration">7 Days / 6 Nights</span>
+            <h3>Santorini Sunset Escape</h3>
+            <p>Fly first-class suites into the Mediterranean and enjoy private infinity pool villas built directly into
+              the Caldera cliffs.</p>
+            <div class="package-price-row">
+              <div class="package-cost">
+                <span>Per Person</span>
+                <strong>$3,150</strong>
+              </div>
+              <a href="error.html" class="package-arrow-link">View Details <i class="fas fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <section class="loyalty-section" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-badge">SkyPass Club</span>
+        <h2>Elevate Every Journey You Take</h2>
+        <p>Join our premium loyalty tiers to turn flight miles into elite upgrades, global lounge invitations, and
+          priority tracks.</p>
+      </div>
+
+      <div class="loyalty-grid">
+
+        <div class="loyalty-card silver" data-aos="fade-up" data-aos-delay="100">
+          <div class="tier-badge-icon"><i class="fas fa-medal"></i></div>
+          <h3>Silver Tier</h3>
+          <span class="miles-requirement">15,000 Annual Miles</span>
+          <p>Start your elevated travel profile with baseline booking bonuses and extra luggage guarantees.</p>
+          <ul class="tier-perks">
+            <li><i class="fas fa-check"></i> +25% Bonus Mileage Multiplier</li>
+            <li><i class="fas fa-check"></i> Complimentary Extra checked bag</li>
+            <li><i class="fas fa-check"></i> Priority Check-In Counters</li>
+          </ul>
+          <a href="auth.html" class="btn btn-secondary tier-btn">Join Club</a>
+        </div>
+
+        <div class="loyalty-card gold popular" data-aos="fade-up" data-aos-delay="200">
+          <div class="popular-ribbon">Most Preferred</div>
+          <div class="tier-badge-icon"><i class="fas fa-award"></i></div>
+          <h3>Gold Status</h3>
+          <span class="miles-requirement">50,000 Annual Miles</span>
+          <p>Our sweet-spot tier offering lounge access worldwide and priority aircraft boarding tracks.</p>
+          <ul class="tier-perks">
+            <li><i class="fas fa-check"></i> +50% Bonus Mileage Multiplier</li>
+            <li><i class="fas fa-check"></i> Worldwide Airport Lounge Access</li>
+            <li><i class="fas fa-check"></i> Priority Security & Boarding Lines</li>
+          </ul>
+          <a href="auth.html" class="btn btn-primary tier-btn">Join Club</a>
+        </div>
+
+        <div class="loyalty-card platinum" data-aos="fade-up" data-aos-delay="300">
+          <div class="tier-badge-icon"><i class="fas fa-gem"></i></div>
+          <h3>Platinum Diamond</h3>
+          <span class="miles-requirement">100,000 Annual Miles</span>
+          <p>The absolute peak of aviation membership, granting elite cabin upgrades automatically.</p>
+          <ul class="tier-perks">
+            <li><i class="fas fa-check"></i> +100% Bonus Mileage Multiplier</li>
+            <li><i class="fas fa-check"></i> Unlimited First-Class Upgrades</li>
+            <li><i class="fas fa-check"></i> Dedicated 24/7 Phone Concierge</li>
+          </ul>
+          <a href="auth.html" class="btn btn-secondary tier-btn">Join Club</a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <section class="booking-final-cta" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container final-cta-container">
+
+      <div class="cta-support-box card-glass-premium card-shadow-velvet" data-aos="fade-right" data-aos-delay="100">
+        <div class="support-icon-badge">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3>Need Assistance Booking?</h3>
+        <p>Our dedicated premium flight concierges are standing by 24/7 to help you coordinate group rates, custom
+          routes, or complex itineraries.</p>
+        <div class="support-action-row">
+          <a href="tel:+18005550199" class="support-link"><i class="fas fa-phone-alt"></i> Speak to an Agent</a>
+          <a href="contact.html" class="btn btn-secondary btn-sm">Message Center</a>
+        </div>
+      </div>
+
+      <div class="cta-urgency-box card-shadow-velvet" data-aos="fade-left" data-aos-delay="200">
+        <div class="urgency-bg-glow"></div>
+        <span class="urgency-badge"><i class="fas fa-fire"></i> Limited Availability</span>
+        <h3>Lock In Your Fare Rates Today</h3>
+        <p>Flight seats to global destinations fluctuate as departure dates approach. Guarantee your cabin pricing tier
+          instantly.</p>
+        <button type="button" class="btn btn-primary finalize-booking-btn">
+          Proceed to Checkout <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <footer class="site-footer style-modern-corporate">
+    <div class="container footer-container">
+
+      <div class="footer-brand-section">
+        <a href="index.html" class="footer-logo">
+          <img src="./assets/stackly.webp" alt="logo" width="150px" height="50px">
+        </a>
+        <p class="footer-brand-desc">
+          Explore the world with seamless booking, premium comforts, and unparalleled flight connectivity
+          across continents.
+        </p>
+        <div class="footer-socials">
+          <a href="error.html" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="error.html" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="error.html" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="error.html" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links-section">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html" class="footer-link active">Home</a></li>
+          <li><a href="book.html" class="footer-link">Book Flights</a></li>
+          <li><a href="trips.html" class="footer-link">Manage Trips</a></li>
+          <li><a href="status.html" class="footer-link">Flight Status</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+
+        </ul>
+      </div>
+
+      <div class="footer-links-section">
+        <h4 class="footer-heading">Support</h4>
+        <ul class="footer-links-list">
+          <li><a href="error.html" class="footer-link">Help Center</a></li>
+          <li><a href="error.html" class="footer-link">Baggage Info</a></li>
+          <li><a href="error.html" class="footer-link">Refund Policy</a></li>
+          <li><a href="error.html" class="footer-link">Travel Advisory</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-section">
+        <h4 class="footer-heading">Contact Us</h4>
+        <ul class="footer-contact-list">
+          <li><i class="fas fa-phone-alt"></i> +1 (800) 555-0199</li>
+          <li><i class="fas fa-envelope"></i> support@skypass.com</li>
+          <li><i class="fas fa-map-marker-alt"></i> 100 Aviation Way, NY</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>&copy; 2026 SkyPass Airlines. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="error.html">Privacy Policy</a>
+          <a href="error.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="script.js"></script>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100
+    });
+  </script>
+
+
+  <script>
+
+    function toggleCustomSelect(element, event) {
+      event.stopPropagation();
+      const wrapper = element.parentElement;
+
+      // Closes any alternate active select lists running on the DOM
+      document.querySelectorAll('.custom-select-wrapper').forEach(el => {
+        if (el !== wrapper) el.classList.remove('dropdown-active');
+      });
+
+      wrapper.classList.toggle('dropdown-active');
+    }
+
+    function selectDropdownOption(listItem) {
+      const wrapper = listItem.closest('.custom-select-wrapper');
+      const txtLabel = wrapper.querySelector('.selected-dropdown-text');
+      const hiddenInput = wrapper.querySelector('input[type="hidden"]');
+
+      const chosenVal = listItem.getAttribute('data-value');
+      const chosenText = listItem.textContent;
+
+      // Set selected updates to text boxes and structural attributes
+      txtLabel.textContent = chosenText;
+      hiddenInput.value = chosenVal;
+
+      // Collapse the list framework smoothly
+      wrapper.classList.remove('dropdown-active');
+
+      // Optional: Trigger your sorting function here (e.g., triggerFlightFilterUpdate())
+      console.log(`Sort criteria modified: ${hiddenInput.id} set to "${chosenVal}"`);
+    }
+
+    // Global click registration to close select drawer components if clicking outside boundaries
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.custom-select-wrapper').forEach(el => {
+        el.classList.remove('dropdown-active');
+      });
+    });
+
+  </script>
+
+
+</body>
+
+</html>

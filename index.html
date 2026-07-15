@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airline Ticket Booking</title>
+  <link rel="icon" href="./assets/bg remove.webp">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./root.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+
+<body>
+
+  <header class="site-header style-modern">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="./assets/stackly.webp" alt="logo" width="150px" height="50px">
+      </a>
+
+      <nav class="desktop-nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="book.html" class="nav-link">Book Flights</a></li>
+          <li><a href="trips.html" class="nav-link">Manage Trips</a></li>
+          <li><a href="status.html" class="nav-link">Flight Status</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="contact.html" class="btn btn-secondary">Contact</a>
+        <a href="auth.html" class="btn btn-primary">Sign Up</a>
+      </div>
+
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+
+    <div class="mobile-drawer">
+      <nav class="mobile-nav">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="book.html" class="mobile-nav-link active">Book Flights</a></li>
+          <li><a href="trips.html" class="mobile-nav-link">Manage Trips</a></li>
+          <li><a href="status.html" class="mobile-nav-link">Flight Status</a></li>
+        </ul>
+        <div class="mobile-actions">
+          <a href="contact.html" class="btn btn-secondary">Contact</a>
+          <a href="auth.html" class="btn btn-primary">Sign Up</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+
+
+
+
+
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-container">
+      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+        <span class="hero-badge">Premium Travel Experience</span>
+        <div class="hero-text-rotator">
+
+          <div class="slide active">
+            <h1>Fly Beyond Boundaries</h1>
+            <p>Discover luxury, comfort, and seamless connectivity to over 500 global destinations.</p>
+          </div>
+
+          <div class="slide">
+            <h1>Unmatched Luxury Awaits</h1>
+            <p>Experience award-winning cabin services, gourmet dining, and private suites in the sky.</p>
+          </div>
+
+          <div class="slide">
+            <h1>Explore Tomorrow's Horizons</h1>
+            <p>Book early to unlock exclusive flight rates, flexible bookings, and hidden resort deals.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="booking-widget" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+        <div class="widget-tabs">
+          <button class="tab-btn active"><i class="fas fa-exchange-alt"></i> Round Trip</button>
+          <button class="tab-btn"><i class="fas fa-arrow-right"></i> One Way</button>
+          <button class="tab-btn"><i class="fas fa-users"></i> Multi-City</button>
+        </div>
+
+        <form class="widget-form">
+          <div class="form-row inputs-row">
+            <div class="input-group">
+              <label><i class="fas fa-plane-departure"></i> From</label>
+              <input type="text" placeholder="Departure City or Airport" value="New York (JFK)">
+            </div>
+
+            <button type="button" class="swap-btn" aria-label="Swap Locations">
+              <i class="fas fa-sync-alt"></i>
+            </button>
+
+            <div class="input-group">
+              <label><i class="fas fa-plane-arrival"></i> To</label>
+              <input type="text" placeholder="Where to?">
+            </div>
+          </div>
+
+          <div class="form-row dates-row">
+            <div class="input-group">
+              <label><i class="far fa-calendar-alt"></i> Depart</label>
+              <input type="date">
+            </div>
+            <div class="input-group">
+              <label><i class="far fa-calendar-alt"></i> Return</label>
+              <input type="date">
+            </div>
+            <div class="input-group">
+              <label><i class="fas fa-user-friends"></i> Passengers & Class</label>
+              <div class="custom-select">1 Adult, Economy</div>
+            </div>
+          </div>
+
+          <div class="widget-footer">
+            <div class="promo-code-wrapper">
+              <a href="#" class="promo-link"><i class="fas fa-tag"></i> Add Promo Code</a>
+            </div>
+            <button type="submit" class="btn btn-primary search-flights-btn">
+              <i class="fas fa-search"></i> Search Flights
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <section class="flight-status-section" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+
+      <div class="status-board-container">
+        <div class="board-header">
+          <div class="header-title">
+            <span class="live-dot"></span>
+            <h3>Live Schedule Matrix</h3>
+          </div>
+          <div class="board-filters">
+            <button type="button" class="filter-btn active">Departures</button>
+            <button type="button" class="filter-btn">Arrivals</button>
+          </div>
+        </div>
+
+        <div class="matrix-table-wrapper">
+          <div class="matrix-row matrix-header">
+            <div>Flight</div>
+            <div>Destination</div>
+            <div>Departure</div>
+            <div>Gate</div>
+            <div>Status</div>
+          </div>
+
+          <div class="matrix-row" data-aos="fade-up" data-aos-delay="50">
+            <div class="flight-id"><strong>SP-204</strong></div>
+            <div class="flight-dest">London (LHR)</div>
+            <div class="flight-time">14:35</div>
+            <div class="flight-gate">Gate B12</div>
+            <div><span class="status-badge status-boarding">Boarding</span></div>
+          </div>
+
+          <div class="matrix-row" data-aos="fade-up" data-aos-delay="100">
+            <div class="flight-id"><strong>SP-711</strong></div>
+            <div class="flight-dest">Tokyo (HND)</div>
+            <div class="flight-time">15:10</div>
+            <div class="flight-gate">Gate A08</div>
+            <div><span class="status-badge status-ontime">On Time</span></div>
+          </div>
+
+          <div class="matrix-row" data-aos="fade-up" data-aos-delay="150">
+            <div class="flight-id"><strong>SP-882</strong></div>
+            <div class="flight-dest">Frankfurt (FRA)</div>
+            <div class="flight-time">15:55</div>
+            <div class="flight-gate">Gate C03</div>
+            <div><span class="status-badge status-ontime">On Time</span></div>
+          </div>
+
+          <div class="matrix-row" data-aos="fade-up" data-aos-delay="200">
+            <div class="flight-id"><strong>SP-143</strong></div>
+            <div class="flight-dest">Paris (CDG)</div>
+            <div class="flight-time">16:20</div>
+            <div class="flight-gate">Gate B02</div>
+            <div><span class="status-badge status-delayed">Delayed (15m)</span></div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <section class="features-section">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+        <span class="section-badge">The SkyPass Standard</span>
+        <h1>Experience The Pinnacle of Aviation</h1>
+        <p>We combine cutting-edge technology with timeless hospitality to redefine the way you traverse the
+          globe.</p>
+      </div>
+
+      <div class="features-grid">
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">
+          <div class="card-icon-wrapper">
+            <i class="fas fa-crown"></i>
+          </div>
+          <h3>First-Class Luxury</h3>
+          <p>Indulge in private enclosed suites, fine dining curated by Michelin-star chefs, and individual
+            flat-bed systems.</p>
+          <a href="error.html" class="card-link">Explore Suites <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+          <div class="card-icon-wrapper">
+            <i class="fas fa-globe-americas"></i>
+          </div>
+          <h3>Global Network</h3>
+          <p>Seamlessly connect through major hubs to over 500 cities worldwide with optimized flight
+            schedules.</p>
+          <a href="book.html" class="card-link">View Destinations <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+          <div class="card-icon-wrapper">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Uncompromising Safety</h3>
+          <p>Fly with peace of mind knowing our fleet undergoes continuous maintenance checking using modern
+            protocols.</p>
+          <a href="error.html" class="card-link">Our Safety Record <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <div class="feature-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+          <div class="card-icon-wrapper">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <h3>Sustainable Aviation</h3>
+          <p>Commit to a greener future with our modern eco-efficient aircraft reducing carbon emissions
+            daily.</p>
+          <a href="error.html" class="card-link">Eco Initiatives <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <section class="class-showcase-section">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+        <span class="section-badge">Cabin Tiers</span>
+        <h2>Tailored For Your Travel Standard</h2>
+        <p>Immerse yourself in precision-engineered cabin spaces designed exclusively for absolute restful transit
+          profiles.</p>
+      </div>
+
+      <div class="showcase-container" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+
+        <div class="showcase-sidebar">
+          <button type="button" class="tier-selector-btn active">
+            <span class="tier-number">01</span>
+            <div class="tier-title-block">
+              <h4>First Class Private Suites</h4>
+              <span>The Absolute Zenith of Luxury</span>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <button type="button" class="tier-selector-btn">
+            <span class="tier-number">02</span>
+            <div class="tier-title-block">
+              <h4>Business Class Club</h4>
+              <span>Optimized For Executive Rest</span>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </button>
+
+          <button type="button" class="tier-selector-btn">
+            <span class="tier-number">03</span>
+            <div class="tier-title-block">
+              <h4>Premium Economy Space</h4>
+              <span>Enhanced Comfort & Priority Flight</span>
+            </div>
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <div class="showcase-display-panel">
+          <div class="display-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?q=80&w=800&auto=format&fit=crop"
+              alt="First Class Suite">
+          </div>
+          <div class="display-details-content">
+            <h3>The SkyPass Private Suite</h3>
+            <p>Equipped with sliding privacy architecture, individual ambient lighting, automated flat-bed
+              transformation controls, and personal wardrobe compartments.</p>
+            <ul class="display-perks-list">
+              <li><i class="fas fa-check-circle"></i> Private Chauffeur Airport Pickups</li>
+              <li><i class="fas fa-check-circle"></i> Michelin-Star On-Demand Dining</li>
+              <li><i class="fas fa-check-circle"></i> Premium Lounge Spa Access Tracks</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+
+  <section class="baggage-tracking-section" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container baggage-container">
+
+      <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+        <span class="section-badge">Live Operations</span>
+        <h2>Real-Time Baggage Logistics</h2>
+        <p>Monitor the live telemetry tracking status of your checked luggage from check-in counter processing to final
+          destination carousels.</p>
+      </div>
+
+      <!-- Live Tracking Timeline Core -->
+      <div class="baggage-tracking-card card-shadow-velvet card-glow-border">
+
+        <div class="baggage-meta-header">
+          <div class="baggage-id-block">
+            <i class="fas fa-suitcase-rolling"></i>
+            <div>
+              <span>Bag Tag Identifier</span>
+              <strong>SK-998271-X</strong>
+            </div>
+          </div>
+          <div class="baggage-eta-block">
+            <span>Current Location</span>
+            <strong class="location-highlight">JFK Sorting Terminal</strong>
+          </div>
+        </div>
+
+        <!-- Structural Progress Track Grid -->
+        <div class="baggage-timeline-flow">
+
+          <!-- Step 1: Completed -->
+          <div class="flow-step step-completed">
+            <div class="icon-node">
+              <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="step-label">
+              <h5>Counter Checked</h5>
+              <p>11:15 AM • JFK Counter</p>
+            </div>
+          </div>
+
+          <!-- Step 2: Active / Current -->
+          <div class="flow-step step-active">
+            <div class="icon-node">
+              <span class="pulse-beacon"></span>
+              <i class="fas fa-dolly-flatbed"></i>
+            </div>
+            <div class="step-label">
+              <h5>Sorting Facility</h5>
+              <p>12:40 PM • Conveyor Belt 4</p>
+            </div>
+          </div>
+
+          <!-- Step 3: Pending -->
+          <div class="flow-step step-pending">
+            <div class="icon-node">
+              <i class="far fa-circle"></i>
+            </div>
+            <div class="step-label">
+              <h5>Aircraft Loaded</h5>
+              <p>Awaiting Operations Clearance</p>
+            </div>
+          </div>
+
+          <!-- Step 4: Pending -->
+          <div class="flow-step step-pending">
+            <div class="icon-node">
+              <i class="far fa-circle"></i>
+            </div>
+            <div class="step-label">
+              <h5>Arrival Reclaimed</h5>
+              <p>CDG Carousel 9</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <section class="destinations-section">
+    <div class="container">
+
+      <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+        <span class="section-badge">Exclusive Offers</span>
+        <h2>Inspiring Destinations For Your Next Escape</h2>
+        <p>Explore curated flight paths to global hotspots at seasonal rates, configured for luxury and business travel.
+        </p>
+      </div>
+
+      <div class="destinations-grid">
+
+        <div class="dest-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">
+          <div class="dest-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=600&auto=format&fit=crop"
+              alt="Paris">
+            <span class="dest-tag">Trending</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-meta">
+              <h3>Paris, France</h3>
+              <span class="dest-price">From $749</span>
+            </div>
+            <p>Experience iconic romance, architecture, and world-class culinary art channels.</p>
+            <div class="dest-footer">
+              <span class="flight-type"><i class="fas fa-plane-departure"></i> Round Trip</span>
+              <a href="book.html" class="btn btn-secondary btn-sm">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+          <div class="dest-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?q=80&w=600&auto=format&fit=crop"
+              alt="Kyoto">
+            <span class="dest-tag">Seasonal</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-meta">
+              <h3>Kyoto, Japan</h3>
+              <span class="dest-price">From $920</span>
+            </div>
+            <p>Immerse yourself in historic temples, bamboo groves, and traditional tea houses.</p>
+            <div class="dest-footer">
+              <span class="flight-type"><i class="fas fa-plane-departure"></i> Round Trip</span>
+              <a href="book.html" class="btn btn-secondary btn-sm">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+          <div class="dest-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?q=80&w=600&auto=format&fit=crop"
+              alt="Sydney">
+            <span class="dest-tag">Popular</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-meta">
+              <h3>Sydney, Australia</h3>
+              <span class="dest-price">From $1,150</span>
+            </div>
+            <p>Soak up coastal sunray structures along world-famous beaches and harbor bays.</p>
+            <div class="dest-footer">
+              <span class="flight-type"><i class="fas fa-plane-departure"></i> Round Trip</span>
+              <a href="book.html" class="btn btn-secondary btn-sm">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dest-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+          <div class="dest-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=600&auto=format&fit=crop"
+              alt="Dubai">
+            <span class="dest-tag">Luxury</span>
+          </div>
+          <div class="dest-info">
+            <div class="dest-meta">
+              <h3>Dubai, UAE</h3>
+              <span class="dest-price">From $810</span>
+            </div>
+            <p>Witness groundbreaking architecture, desert horizons, and premium shopping landmarks.</p>
+            <div class="dest-footer">
+              <span class="flight-type"><i class="fas fa-plane-departure"></i> Round Trip</span>
+              <a href="book.html" class="btn btn-secondary btn-sm">Book Now</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+<section class="premium-testimonials-section" data-aos="fade-up" data-aos-duration="1000">
+  <div class="testimonial-ambient-glow"></div>
+  <div class="container testimonial-matrix-container">
+
+    <!-- Premium Section Header Header Layer -->
+    <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+      <span class="section-badge"><i class="fas fa-quote-right"></i> Guest Telemetry</span>
+      <h2>Refined Journeys, Shared Experiences</h2>
+      <p>Discover how global business operators, elite members, and corporate travel directors rate our real-time logistics networks.</p>
+    </div>
+
+    <!-- Asymmetric Grid Matrix Housing 4 Testimonials -->
+    <div class="testimonial-asymmetric-matrix">
+
+      <!-- Testimonial 1: Elite Corporate Tier -->
+      <div class="testimonial-luxe-card card-shadow-velvet card-glow-border featured-item" data-aos="zoom-in-up" data-aos-delay="100">
+        <div class="quote-graphic-mark">“</div>
+        <div class="card-inner-flow">
+          <div class="testimonial-rating-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-review-text">The live telemetry tracking for baggage changed how our executive team travels. Being able to view sorting updates at JFK straight from our dashboard app removed all arrival friction entirely.</p>
+          <div class="reviewer-profile-footer">
+            <div class="avatar-housing">
+              <div class="avatar-initials tier-elite">EV</div>
+            </div>
+            <div class="reviewer-meta-details">
+              <strong>Elena Vance</strong>
+              <span>Logistics Director, Vance Media</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2: Flight Status Tracking User -->
+      <div class="testimonial-luxe-card card-shadow-velvet card-glow-border" data-aos="zoom-in-up" data-aos-delay="200">
+        <div class="quote-graphic-mark">“</div>
+        <div class="card-inner-flow">
+          <div class="testimonial-rating-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-review-text">During a severe weather alert approach into CDG, the instant priority notification desk rebooked my connection before we even touched down. Absolute world-class resolution mechanics.</p>
+          <div class="reviewer-profile-footer">
+            <div class="avatar-housing">
+              <div class="avatar-initials tier-club">MC</div>
+            </div>
+            <div class="reviewer-meta-details">
+              <strong>Marcus Sterling</strong>
+              <span>Enterprise Advisor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3: Premium Seat Allocation User -->
+      <div class="testimonial-luxe-card card-shadow-velvet card-glow-border" data-aos="zoom-in-up" data-aos-delay="300">
+        <div class="quote-graphic-mark">“</div>
+        <div class="card-inner-flow">
+          <div class="testimonial-rating-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-review-text">The cabin map interface is flawlessly executed. Snagging row 12A window space and instantly upgrading to the enclosed first-class suites took under 30 seconds.</p>
+          <div class="reviewer-profile-footer">
+            <div class="avatar-housing">
+              <div class="avatar-initials tier-club">DK</div>
+            </div>
+            <div class="reviewer-meta-details">
+              <strong>Devon Knight</strong>
+              <span>Founder, K-Tech Global</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 4: Global Concierge User -->
+      <div class="testimonial-luxe-card card-shadow-velvet card-glow-border featured-item" data-aos="zoom-in-up" data-aos-delay="400">
+        <div class="quote-graphic-mark">“</div>
+        <div class="card-inner-flow">
+          <div class="testimonial-rating-stars">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="testimonial-review-text">Their secure custom forms and hidden dropdown mechanics work beautifully. The elite support concierge solved a multi-passenger corporate routing allocation manifest error instantly.</p>
+          <div class="reviewer-profile-footer">
+            <div class="avatar-housing">
+              <div class="avatar-initials tier-elite">SR</div>
+            </div>
+            <div class="reviewer-meta-details">
+              <strong>Sasha Reynolds</strong>
+              <span>Global Travel Lead</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+  <section class="faq-section" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
+
+      <div class="section-header">
+        <span class="section-badge">Have Questions?</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Find quick answers regarding booking policies, cancellations, baggage allowances, and premium upgrades.</p>
+      </div>
+
+      <div class="faq-accordion-container">
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>How can I modify or cancel my flight booking online?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              <p>You can easily modify your travel dates, flight paths, or cancel your ticket completely by visiting the
+                "Manage Trips" section in the navigation bar. Log into your account or enter your unique booking
+                reference code along with your last name to initiate flexible structural changes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>What is the standard baggage allowance for Economy vs Business Class?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              <p>Economy Class tickets generally include 1 personal item and 1 standard carry-on bag up to 7kg, with
+                checked bag options depending on your fare tier. Business and First-Class bookings grant complimentary
+                access to 2 checked bags up to 32kg each, alongside priority track tags.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>When does online check-in open and close before departure?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              <p>Online check-in opens exactly 24 hours prior to your scheduled flight departure time and closes 90
+                minutes before the wheels go up for international flights. You can download digital boarding passes
+                directly to your phone tracking wallet.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Does SkyPass offer flexible refund policies for flight delays?</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="faq-content">
+            <div class="faq-content-inner">
+              <p>Yes, if your flight path is cancelled or delayed by more than 3 hours due to scheduling issues, you
+                qualify for full cash refunds or complimentary rebooking onto the next available operations track
+                without paying any fare difference fees.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <section class="cta-section" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container cta-container">
+
+      <div class="cta-content" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1000">
+        <span class="section-badge">SkyPass Mobile</span>
+        <h2>Your Personal Travel Concierge, In Your Pocket</h2>
+        <p>Download the official SkyPass app to check in instantly, monitor live flight paths, track luggage tracking
+          statuses, and claim exclusive mobile-only booking rewards.</p>
+
+        <div class="app-badges">
+          <a href="error.html" class="app-btn">
+            <i class="fab fa-apple"></i>
+            <div class="app-btn-text">
+              <span>Download on the</span>
+              <strong>App Store</strong>
+            </div>
+          </a>
+          <a href="error.html" class="app-btn">
+            <i class="fab fa-google-play"></i>
+            <div class="app-btn-text">
+              <span>GET IT ON</span>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="cta-visual" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+        <div class="visual-glow"></div>
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <div class="app-header">
+              <span class="app-logo">✈ SkyPass</span>
+              <i class="fas fa-bell"></i>
+            </div>
+            <div class="app-card">
+              <span class="card-title">Next Flight</span>
+              <div class="ticket-route">
+                <div>
+                  <strong>JFK</strong>
+                  <span>New York</span>
+                </div>
+                <i class="fas fa-plane"></i>
+                <div>
+                  <strong>CDG</strong>
+                  <span>Paris</span>
+                </div>
+              </div>
+              <div class="ticket-meta">
+                <span>Gate 24B</span>
+                <span>Boarding 14:20</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <footer class="site-footer style-modern-corporate">
+    <div class="container footer-container">
+
+      <div class="footer-brand-section">
+        <a href="index.html" class="footer-logo">
+          <img src="./assets/stackly.webp" alt="logo" width="150px" height="50px">
+        </a>
+        <p class="footer-brand-desc">
+          Explore the world with seamless booking, premium comforts, and unparalleled flight connectivity
+          across continents.
+        </p>
+        <div class="footer-socials">
+          <a href="error.html" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="error.html" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="error.html" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="error.html" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links-section">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html" class="footer-link active">Home</a></li>
+          <li><a href="book.html" class="footer-link">Book Flights</a></li>
+          <li><a href="trips.html" class="footer-link">Manage Trips</a></li>
+          <li><a href="status.html" class="footer-link">Flight Status</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+
+        </ul>
+      </div>
+
+      <div class="footer-links-section">
+        <h4 class="footer-heading">Support</h4>
+        <ul class="footer-links-list">
+          <li><a href="error.html" class="footer-link">Help Center</a></li>
+          <li><a href="error.html" class="footer-link">Baggage Info</a></li>
+          <li><a href="error.html" class="footer-link">Refund Policy</a></li>
+          <li><a href="error.html" class="footer-link">Travel Advisory</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-section">
+        <h4 class="footer-heading">Contact Us</h4>
+        <ul class="footer-contact-list">
+          <li><i class="fas fa-phone-alt"></i> +1 (800) 555-0199</li>
+          <li><i class="fas fa-envelope"></i> support@skypass.com</li>
+          <li><i class="fas fa-map-marker-alt"></i> 100 Aviation Way, NY</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>&copy; 2026 SkyPass Airlines. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="error.html">Privacy Policy</a>
+          <a href="error.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="script.js"></script>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100
+    });
+  </script>
+
+</body>
+
+</html>

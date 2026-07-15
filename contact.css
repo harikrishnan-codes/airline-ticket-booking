@@ -1,0 +1,1190 @@
+.btn-secondary.active {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border-color: var(--btn-primary-bg);
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   CONTACT US INTRO & HERO ENGINE DESIGN
+   ========================================================================== */
+
+.contact-hero-section {
+  padding: 7rem 0 5rem 0;
+  background-color: var(--bg-surface);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.contact-blur-ambient {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(49, 130, 206, 0.06) 0%, transparent 70%);
+  top: -20%;
+  left: -10%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.contact-hero-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ======================================= */
+/* LEFT COLUMN: INTRO CONTENT & LIVE OPS    */
+/* ======================================= */
+.contact-intro-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-hero-section h1 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--primary-main);
+  letter-spacing: -0.01em;
+  font-size: 3.5rem;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.contact-intro-content p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.65;
+  margin-bottom: 3rem;
+}
+
+.ops-status-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.ops-status-card {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.ops-status-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(49, 130, 206, 0.25);
+}
+
+.ops-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ops-card-header h5 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0;
+}
+
+.ops-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.ops-pulse-dot.green {
+  background-color: var(--success);
+}
+
+.ops-pulse-dot.blue {
+  background-color: var(--accent-color);
+}
+
+.ops-pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1.5px solid currentColor;
+  opacity: 0;
+  animation: opsPulse 2.5s infinite ease-out;
+}
+
+.ops-pulse-dot.green::after {
+  color: var(--success);
+}
+
+.ops-pulse-dot.blue::after {
+  color: var(--accent-color);
+}
+
+.ops-status-card strong {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--primary-main);
+}
+
+.ops-status-card span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ======================================= */
+/* RIGHT COLUMN: CORPORATE SUMMARY CARD    */
+/* ======================================= */
+.contact-summary-card {
+  background-color: var(--primary-main);
+  /* Premium Dark High Contrast Box */
+  color: var(--text-on-navy);
+  border-radius: 24px;
+  padding: 3.5rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.summary-card-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.5rem;
+}
+
+.contact-summary-card h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-on-navy);
+  margin-bottom: 0.5rem;
+}
+
+.contact-summary-card p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0;
+}
+
+.corporate-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.corporate-details-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.detail-icon-box {
+  width: 44px;
+  height: 44px;
+  background-color: rgba(255, 255, 255, 0.06);
+  color: var(--accent-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: var(--transition-smooth);
+}
+
+.corporate-details-list li:hover .detail-icon-box {
+  background-color: var(--accent-color);
+  color: var(--text-on-navy);
+  transform: scale(1.05) rotate(-3deg);
+}
+
+.detail-text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail-text-box span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.detail-text-box strong {
+  font-size: 1rem;
+  color: #FFFFFF;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.detail-text-box a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+@keyframes opsPulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* ======================================= */
+/* RESPONSIVE DESIGN BREAKPOINT (768px)    */
+/* ======================================= */
+@media (max-width: 768px) {
+  .contact-hero-section {
+    padding: 4rem 0;
+  }
+
+  .contact-hero-container {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .contact-intro-content {
+    text-align: center;
+  }
+
+  .contact-hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .contact-intro-content p {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+  }
+
+  .ops-status-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    text-align: left;
+  }
+
+  .contact-summary-card {
+    padding: 2.5rem 1.75rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   SECURE MESSAGE PORTAL ENGINE DESIGN
+   ========================================================================== */
+
+.secure-message-section {
+  padding: 5rem 0;
+  background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-main) 100%);
+  position: relative;
+}
+
+.secure-message-section h2 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--primary-main);
+  letter-spacing: -0.01em;
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.secure-form-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.secure-portal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.form-dual-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+.portal-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  position: relative;
+}
+
+.portal-input-group.full-width {
+  grid-column: span 2;
+}
+
+.portal-input-group label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.portal-input-group label i {
+  color: var(--accent-color);
+}
+
+/* Input Focus Glow & Sheen Containment Layer */
+.input-focus-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.portal-input-group input,
+.portal-input-group textarea,
+.portal-input-group select {
+  width: 100%;
+  padding: 1.15rem 1.5rem;
+  background-color: var(--bg-main);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  font-weight: 600;
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.portal-input-group textarea {
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Premium sliding anchor bottom accent line indicator */
+.focus-bar {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: width 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), left 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.portal-input-group input:focus~.focus-bar,
+.portal-input-group textarea:focus~.focus-bar {
+  width: 100%;
+  left: 0;
+}
+
+.portal-input-group input:focus,
+.portal-input-group textarea:focus,
+.portal-input-group select:focus {
+  background-color: var(--bg-surface);
+  border-color: rgba(49, 130, 206, 0.2);
+  box-shadow: 0 8px 24px rgba(26, 54, 93, 0.03);
+}
+
+#portalPnr {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Custom Dropdown Styling Variables */
+.portal-select-container {
+  position: relative;
+  width: 100%;
+}
+
+.portal-select-container select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.portal-select-container::after {
+  content: '\f078';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+  font-size: 0.85rem;
+}
+
+/* Form Actions Footer Alignment Bar */
+.portal-actions-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-color);
+  padding-top: 2rem;
+  margin-top: 1rem;
+}
+
+.security-stamp-notice {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--success);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.dispatch-portal-btn {
+  padding: 1.15rem 3rem;
+  font-size: 1.05rem;
+  border-radius: 12px;
+  gap: 0.85rem;
+  box-shadow: 0 8px 25px rgba(26, 54, 93, 0.15);
+}
+
+.dispatch-portal-btn:hover i {
+  transform: translate(4px, -4px) scale(1.1);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ======================================= */
+/* RESPONSIVE DESIGN BREAKPOINT (768px)    */
+/* ======================================= */
+@media (max-width: 768px) {
+  .secure-message-section {
+    padding: 4rem 0;
+  }
+
+  .secure-message-section h2 {
+    font-size: 2rem;
+  }
+
+  .secure-form-card {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .form-dual-row {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .portal-input-group.full-width {
+    grid-column: span 1;
+  }
+
+  .portal-actions-footer {
+    flex-direction: column;
+    gap: 1.75rem;
+    text-align: center;
+  }
+
+  .dispatch-portal-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ==========================================================================
+   PORTAL SECURE ROUTER DROP PANEL DESIGN
+   ========================================================================== */
+
+.portal-custom-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.portal-custom-select-wrapper .custom-select-btn {
+  width: 100%;
+  padding: 1.15rem 1.5rem;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.portal-custom-select-wrapper .selected-dropdown-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.portal-custom-select-wrapper .arrow-indicator {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Floating Drop Drawer Options Layer */
+.portal-custom-select-wrapper .custom-options-list {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  box-shadow: 0 15px 35px rgba(26, 54, 93, 0.12);
+  padding: 0.5rem;
+  margin: 0;
+  list-style: none;
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.portal-custom-select-wrapper .custom-options-list li {
+  padding: 0.85rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.portal-custom-select-wrapper .custom-options-list li:hover,
+.portal-custom-select-wrapper .custom-options-list li.selected {
+  background-color: var(--bg-main);
+  color: var(--accent-color);
+}
+
+/* --- Toggle State Modifier Framework Classes --- */
+.portal-custom-select-wrapper.dropdown-active .custom-options-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.portal-custom-select-wrapper.dropdown-active .custom-select-btn {
+  background-color: var(--bg-surface);
+  border-color: rgba(49, 130, 206, 0.3);
+  box-shadow: 0 8px 24px rgba(26, 54, 93, 0.03);
+}
+
+.portal-custom-select-wrapper.dropdown-active .arrow-indicator {
+  transform: rotate(180deg);
+}
+
+/* ======================================= */
+/* RESPONSIVE DESIGN BREAKPOINT (768px)    */
+/* ======================================= */
+@media (max-width: 768px) {
+  .portal-custom-select-wrapper .custom-select-btn {
+    padding: 1rem 1.25rem;
+  }
+
+  .portal-custom-select-wrapper .custom-options-list li {
+    padding: 0.75rem 1.15rem;
+    font-size: 0.9rem;
+  }
+}
+
+
+
+
+
+
+/* ==========================================================================
+   CONTACT PAGE NAVY FAQ ACCORDION ENGINE DESIGN
+   ========================================================================== */
+
+.contact-faq-section {
+  padding: 6rem 0;
+  background-color: var(--primary-main);
+  /* Signature Home Page Navy Corporate Background */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Luxury ambient backlight drop sheet layer */
+.faq-ambient-glow {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(49, 130, 206, 0.12) 0%, transparent 75%);
+  bottom: -15%;
+  right: -5%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.contact-faq-container {
+  position: relative;
+  z-index: 2;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+/* White Variation Typographic Header Layout overrides */
+.white-theme-header.section-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--text-on-navy);
+  letter-spacing: -0.01em;
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.white-theme-header.section-header p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.luxury-badge-white {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--accent-color);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* --- High Contrast Accordion Structure Elements --- */
+.contact-faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.faq-portal-item {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.faq-portal-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.75rem 2.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+}
+
+.faq-portal-trigger span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-on-navy);
+  padding-right: 1.5rem;
+}
+
+.faq-portal-trigger i {
+  color: var(--accent-color);
+  font-size: 0.95rem;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.faq-portal-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.faq-content-padding {
+  padding: 0 2.5rem 1.75rem 2.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.06);
+  padding-top: 1.25rem;
+}
+
+.faq-content-padding p {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+.faq-content-padding strong {
+  color: var(--text-on-navy);
+}
+
+/* --- Active State Accordion Class Mechanics --- */
+.faq-portal-item.active {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(49, 130, 206, 0.3);
+}
+
+.faq-portal-item.active .faq-portal-trigger i {
+  transform: rotate(180deg);
+  color: var(--text-on-navy);
+}
+
+/* ======================================= */
+/* RESPONSIVE DESIGN BREAKPOINT (768px)    */
+/* ======================================= */
+@media (max-width: 768px) {
+  .contact-faq-section {
+    padding: 4rem 0;
+  }
+
+  .white-theme-header.section-header h2 {
+    font-size: 2rem;
+  }
+
+  .faq-portal-trigger {
+    padding: 1.35rem 1.5rem;
+  }
+
+  .faq-portal-trigger span {
+    font-size: 0.95rem;
+  }
+
+  .faq-content-padding {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .faq-content-padding p {
+    font-size: 0.875rem;
+  }
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   CONTACT PAGE ESCALATION DESK STYLING PROFILE
+   ========================================================================== */
+
+.contact-escalation-section {
+  padding: 5rem 0 7rem 0;
+  background-color: var(--bg-main);
+  position: relative;
+}
+
+.escalation-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: stretch;
+}
+
+/* --- High-End Card Base Configurations --- */
+.escalation-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+    box-shadow 0.5s cubic-bezier(0.165, 0.84, 0.44, 1),
+    border-color 0.4s ease;
+}
+
+.card-interior-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.escalation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.escalation-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.escalation-badge-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+/* --- Varied Asymmetric Tracking Styles --- */
+.escalation-card.urgent-track {
+  border-top: 4px solid var(--error);
+}
+
+.escalation-card.urgent-track .escalation-icon {
+  background-color: rgba(229, 62, 98, 0.08);
+  color: var(--error);
+}
+
+.escalation-badge-tag.hot-red {
+  background-color: rgba(229, 62, 98, 0.1);
+  color: var(--error);
+}
+
+.escalation-card.corporate-track {
+  border-top: 4px solid #D69E2E;
+}
+
+.escalation-card.corporate-track .escalation-icon {
+  background-color: rgba(236, 201, 75, 0.08);
+  color: #D69E2E;
+}
+
+.escalation-badge-tag.sleek-gold {
+  background-color: rgba(236, 201, 75, 0.12);
+  color: #B7791F;
+}
+
+.contact-escalation-section h3 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--primary-main);
+  margin-bottom: 0.75rem;
+}
+
+.contact-escalation-section p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+/* --- Execution Footers Matrix --- */
+.escalation-action-footer {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.emergency-call-btn,
+.institutional-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 0.95rem 1.75rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  gap: 0.75rem;
+}
+
+.emergency-call-btn {
+  background-color: var(--error);
+  border-color: var(--error);
+}
+
+.emergency-call-btn:hover {
+  background-color: #C53030;
+  border-color: #C53030;
+}
+
+.action-restriction-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ======================================= */
+/* PREMIUM MOTION TILT INTERACTIONS        */
+/* ======================================= */
+.escalation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(26, 54, 93, 0.05);
+}
+
+.escalation-card.urgent-track:hover {
+  border-color: var(--error);
+}
+
+.escalation-card.corporate-track:hover {
+  border-color: #D69E2E;
+}
+
+/* ======================================= */
+/* RESPONSIVE DESIGN BREAKPOINT (768px)    */
+/* ======================================= */
+@media (max-width: 768px) {
+  .contact-escalation-section {
+    padding: 4rem 0;
+  }
+
+  .escalation-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .escalation-card {
+    padding: 2.5rem 1.75rem;
+  }
+}
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   CONTACT PAGE FINAL EXTENDED CTA & VISUAL MAP DESIGN
+   ========================================================================== */
+
+.contact-final-cta {
+  padding: 5rem 0 7rem 0;
+  background-color: var(--bg-surface);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-cta-container {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* --- Left Column: Context Card --- */
+.cta-direct-box {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 4rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.contact-final-cta .urgency-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(49, 130, 206, 0.08);
+  color: var(--accent-color);
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+.cta-direct-box h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--primary-main);
+  font-size: 2.25rem;
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+.cta-direct-box p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+}
+
+.cta-action-group {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.redirect-btn {
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  gap: 0.75rem;
+  box-shadow: 0 8px 20px rgba(49, 130, 206, 0.15);
+}
+
+.redirect-btn:hover i {
+  transform: rotate(15deg) scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* --- Right Column: Architectural Terminal Visual Frame --- */
+.cta-location-visual {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  height: 380px;
+  background-color: var(--primary-dark);
+}
+
+.visual-glow-glow {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background-color: var(--accent-color);
+  filter: blur(70px);
+  opacity: 0.15;
+  top: -50px;
+  right: -50px;
+  z-index: 1;
+}
+
+.terminal-map-frame {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.terminal-map-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  filter: grayscale(100%) contrast(110%);
+  transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.cta-location-visual:hover .terminal-map-frame img {
+  transform: scale(1.04);
+}
+
+/* HUD Map Marker Overlay Layer */
+.map-coordinates-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 3;
+}
+
+.pin-bounce {
+  font-size: 2.25rem;
+  color: var(--accent-color);
+  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  animation: visualPinDrop 2s infinite ease-in-out;
+}
+
+.coord-label {
+  background-color: rgba(15, 35, 71, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.6rem 1.25rem;
+  border-radius: 10px;
+  text-align: center;
+  color: #FFFFFF;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.coord-label strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.coord-label span {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+@keyframes visualPinDrop {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ======================================= */
+/* RESPONSIVE DESIGN BREAKPOINT (768px)    */
+/* ======================================= */
+@media (max-width: 768px) {
+  .contact-final-cta {
+    padding: 4rem 0;
+  }
+
+  .contact-cta-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .cta-direct-box {
+    padding: 2.5rem 1.75rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .cta-direct-box h3 {
+    font-size: 1.75rem;
+  }
+
+  .cta-action-group {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .redirect-btn,
+  .text-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cta-location-visual {
+    height: 280px;
+  }
+}

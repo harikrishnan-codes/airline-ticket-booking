@@ -1,0 +1,138 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Syncopate:wght@700&family=Volkhov:wght@700&display=swap');
+:root {
+  /* Brand Colors */
+  --primary-main: #1A365D;       /* Navy Blue (Headers, Primary Actions) */
+  --primary-dark: #0F2347;       /* Deep Midnight Navy (Focus states) */
+  --accent-color: #3182CE;       /* Electric Sky Blue (CTAs, Selection Highlights) */
+
+  /* Backgrounds */
+  --bg-main: #EDF2F7;            /* Light Navy/Slate Blue (Global Page Background) */
+  --bg-surface: #FFFFFF;         /* Pure White (Booking Cards, Form Containers) */
+  
+  /* Typography & Borders */
+  --text-main: #1A202C;          /* Dark Slate (High readability for details/prices) */
+  --text-muted: #4A5568;         /* Muted Slate (Labels, Dates, Form Placeholders) */
+  --text-on-navy: #FFFFFF;       /* White text specifically for dark navy banners */
+  --border-color: #CBD5E0;       /* Soft Blue-Gray Border */
+
+  /* Primary Button styles */
+  --btn-primary-bg: #1A365D;        
+  --btn-primary-text: #FFFFFF;      
+  --btn-primary-hover-bg: #2B4C7E;  /* Lighter navy on hover */
+  --btn-primary-active-bg: #0F2347; /* Deep midnight navy on click */
+
+  /* Secondary Button styles */
+  --btn-secondary-bg: #FFFFFF;      
+  --btn-secondary-text: #1A365D;    
+  --btn-secondary-border: #1A365D;  
+  --btn-secondary-hover-bg: #F0F4F8;/* Soft blue tint on hover */
+  --btn-secondary-hover-text: #2B4C7E;
+
+  /* Semantic Statuses */
+  --success: #38A169;            /* Green (Available, Seat Confirmed) */
+  --error: #E53E3E;              /* Red (Sold Out, Error) */
+
+  /* Typography Scales */
+  --fs-h1: 2.75rem;
+  --fs-h2: 2rem;
+  --fs-h3: 1.5rem;
+  --fs-p: 1rem;
+  --lh-body: 1.6;
+  --lh-heading: 1.2;
+
+  /* Global Animations */
+  --transition-smooth: all 0.2s ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow-y: scroll; /* Forces a single, native browser-level scroll track */
+}
+
+body {
+    background-color: var(--bg-main); /* Replaced --canvas-dark with light navy background */
+    color: var(--text-main);          /* Replaced --text-dark-pure with dark slate main text */
+    font-family: 'Inter', sans-serif;
+    line-height: var(--lh-body);
+    min-height: 100%;
+    overflow-x: hidden; /* Restricts horizontal content leaks directly here only */
+}
+
+/* Safeguard block to prevent any third-party app containers from triggering inner boxes */
+#app, #root, .wrapper, main {
+    overflow: visible !important;
+    height: auto !important;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* --- Typography Core Bindings --- */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-main); /* Fixed mapping to main slate text color */
+    font-weight: 700;
+    line-height: var(--lh-heading);
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+p { font-size: var(--fs-p); margin-bottom: 1rem; color: var(--text-muted); /* Fixed mapping to muted slate text color */ }
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-smooth);
+}
+
+ul { list-style: none; }
+
+/* --- Global Button Component Bindings --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+.btn-primary:hover {
+  background-color: var(--btn-primary-hover-bg);
+}
+
+.btn-primary:active {
+  background-color: var(--btn-primary-active-bg);
+}
+
+.btn-secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-text);
+  border-color: var(--btn-secondary-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--btn-secondary-hover-bg);
+  color: var(--btn-secondary-hover-text);
+}

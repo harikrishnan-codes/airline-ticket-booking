@@ -1,0 +1,187 @@
+.error-page {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-main);
+  padding: 4rem 2rem;
+  overflow: hidden;
+}
+
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.error-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 400px;
+  flex-shrink: 0;
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: 900;
+  color: rgba(26, 54, 93, 0.06);
+  position: absolute;
+  z-index: 1;
+  user-select: none;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+.airplane-icon {
+  font-size: 3.5rem;
+  color: var(--accent-color);
+  z-index: 3;
+  animation: planeFloat 4s ease-in-out infinite;
+}
+
+.radar-circle {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(49, 130, 206, 0.4);
+  border-radius: 50%;
+  z-index: 2;
+  opacity: 0;
+  animation: radarPulse 4s cubic-bezier(0.215, 0.610, 0.355, 1) infinite;
+}
+
+.radar-circle.delay-1 {
+  animation-delay: 1.3s;
+}
+
+.radar-circle.delay-2 {
+  animation-delay: 2.6s;
+}
+
+.error-content {
+  max-width: 500px;
+  z-index: 4;
+}
+
+.error-content h2 {
+  font-size: 2.5rem;
+  color: var(--primary-main);
+  margin-bottom: 1.25rem;
+}
+
+.error-content p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.error-actions .btn {
+  gap: 0.5rem;
+}
+
+/* ======================================= */
+/* ANIMATIONS                              */
+/* ======================================= */
+
+@keyframes planeFloat {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-15px) rotate(3deg);
+  }
+  75% {
+    transform: translateY(15px) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+@keyframes radarPulse {
+  0% {
+    width: 60px;
+    height: 60px;
+    opacity: 1;
+  }
+  100% {
+    width: 400px;
+    height: 400px;
+    opacity: 0;
+  }
+}
+
+/* ======================================= */
+/* RESPONSIVE DESIGN (768px)               */
+/* ======================================= */
+
+@media (max-width: 768px) {
+  .error-page {
+    padding: 2rem 1rem;
+  }
+
+  .error-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .error-visual {
+    width: 280px;
+    height: 280px;
+  }
+
+  .error-code {
+    font-size: 6rem;
+  }
+
+  .airplane-icon {
+    font-size: 2.75rem;
+  }
+
+  @keyframes radarPulse {
+    0% {
+      width: 40px;
+      height: 40px;
+      opacity: 1;
+    }
+    100% {
+      width: 280px;
+      height: 280px;
+      opacity: 0;
+    }
+  }
+
+  .error-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .error-content p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+
+  .error-actions {
+    flex-direction: column-reverse;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .error-actions .btn {
+    width: 100%;
+  }
+}

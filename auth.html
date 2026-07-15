@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Ticket Booking</title>
+    <link rel="icon" href="./assets/bg remove.webp">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="auth.css">
+    <link rel="stylesheet" href="./root.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+
+    <section class="auth-portal-section" data-aos="fade-up" data-aos-duration="1000">
+        <div class="auth-ambient-glow"></div>
+        <div class="container auth-container">
+
+            <div class="auth-luxe-card card-shadow-velvet card-glow-border">
+
+                <!-- VIEW 1: SIGN UP CARD PANEL -->
+                <div class="auth-view active" id="signUpView">
+                    <div class="auth-header">
+                        <h2>Create <span class="accent-text">Account</span></h2>
+                    </div>
+
+                    <form id="signUpForm" onsubmit="handleSignUp(event)">
+                        <div class="portal-input-group">
+                            <div class="input-focus-wrapper">
+                                <input type="text" id="signUpName" placeholder="John Doe" required>
+                                <span class="focus-bar"></span>
+                            </div>
+                        </div>
+
+                        <div class="portal-input-group">
+                            <div class="input-focus-wrapper">
+                                <input type="email" id="signUpEmail" placeholder="user@example.com" required>
+                                <span class="focus-bar"></span>
+                            </div>
+                        </div>
+
+                        <div class="portal-input-group dropdown-target-slot">
+                            <div class="custom-select-wrapper auth-role-select">
+                                <div class="custom-select-btn" onclick="toggleCustomSelect(this, event)">
+                                    <span class="selected-dropdown-text">Select Role</span>
+                                    <i class="fas fa-chevron-down arrow-indicator"></i>
+                                </div>
+                                <ul class="custom-options-list">
+                                    <li data-value="Admin" onclick="selectDropdownOption(this)">Admin Role</li>
+                                    <li data-value="Client" onclick="selectDropdownOption(this)">Client Role</li>
+                                </ul>
+                                <input type="hidden" id="signUpRole" name="role" value="">
+                            </div>
+                        </div>
+
+                        <div class="portal-input-group">
+                            <div class="input-focus-wrapper">
+                                <input type="password" id="signUpPassword" placeholder="Password (Min 6 chars)" required>
+                                <i class="far fa-eye toggle-password-visibility" onclick="togglePasswordView(this)"></i>
+                                <span class="focus-bar"></span>
+                            </div>
+                        </div>
+
+                        <div class="portal-input-group">
+                            <div class="input-focus-wrapper">
+                                <input type="password" id="signUpConfirmPassword" placeholder="Confirm Password" required>
+                                <i class="far fa-eye toggle-password-visibility" onclick="togglePasswordView(this)"></i>
+                                <span class="focus-bar"></span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-auth-submit">SIGN UP</button>
+                    </form>
+
+                    <div class="auth-routing-footer">
+                        <p>Already have an account? <span class="link-trigger" onclick="switchAuthView('loginView')">Login</span></p>
+                    </div>
+                </div>
+
+                <!-- VIEW 2: LOGIN CARD PANEL -->
+                <div class="auth-view" id="loginView">
+                    <div class="auth-header">
+                        <h2>Account <span class="accent-text">Login</span></h2>
+                    </div>
+
+                    <form id="loginForm" onsubmit="handleLogin(event)">
+                        <div class="portal-input-group">
+                            <div class="input-focus-wrapper">
+                                <input type="email" id="loginEmail" placeholder="user@example.com" required>
+                                <span class="focus-bar"></span>
+                            </div>
+                        </div>
+
+                        <div class="portal-input-group">
+                            <div class="input-focus-wrapper">
+                                <input type="password" id="loginPassword" placeholder="Enter Password" required>
+                                <i class="far fa-eye toggle-password-visibility" onclick="togglePasswordView(this)"></i>
+                                <span class="focus-bar"></span>
+                            </div>
+                        </div>
+
+                        <div class="forgot-password-link-zone">
+                            <span class="link-trigger subtle-link" onclick="switchAuthView('forgotView')">Forgot Password?</span>
+                        </div>
+
+                        <button type="submit" class="btn btn-auth-submit">LOGIN</button>
+                    </form>
+
+                    <div class="auth-routing-footer">
+                        <p>Don't have an account? <span class="link-trigger" onclick="switchAuthView('signUpView')">Sign Up</span></p>
+                    </div>
+                </div>
+
+                <!-- VIEW 3: FORGOT PASSWORD CARD PANEL -->
+                <div class="auth-view" id="forgotView">
+                    <div class="auth-header">
+                        <h2>Reset <span class="accent-text">Password</span></h2>
+                        <p class="auth-subtitle">Enter your registered email address to authorize security recovery parameters.</p>
+                    </div>
+
+                    <form id="forgotForm" onsubmit="handleForgotPassword(event)">
+                        <div class="portal-input-group">
+                            <div class="input-focus-wrapper">
+                                <input type="email" id="forgotEmail" placeholder="user@example.com" required>
+                                <span class="focus-bar"></span>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-auth-submit">VALIDATE & RESET</button>
+                    </form>
+
+                    <div class="auth-routing-footer">
+                        <p>Return to safety? <span class="link-trigger" onclick="switchAuthView('loginView')">Back to Login</span></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    </script>
+
+    <script>
+        function switchAuthView(targetViewId) {
+            document.querySelectorAll('.auth-view').forEach(view => {
+                view.classList.remove('active');
+            });
+            const targetView = document.getElementById(targetViewId);
+            if (targetView) targetView.classList.add('active');
+        }
+
+        function togglePasswordView(iconNode) {
+            const inputElement = iconNode.parentElement.querySelector('input');
+            if (inputElement.type === 'password') {
+                inputElement.type = 'text';
+                iconNode.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                inputElement.type = 'password';
+                iconNode.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+
+        // STRICT FORM VALIDATION ENGINES
+        function validateNameFormat(name) {
+            const nameRegex = /^[A-Za-z\s]+$/;
+            return nameRegex.test(name.trim());
+        }
+
+        function validateEmailFormat(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email.trim());
+        }
+
+        function handleSignUp(event) {
+            event.preventDefault();
+
+            const nameInput = document.getElementById('signUpName').value;
+            const emailInput = document.getElementById('signUpEmail').value;
+            const roleInput = document.getElementById('signUpRole').value;
+            const passwordInput = document.getElementById('signUpPassword').value;
+            const confirmPasswordInput = document.getElementById('signUpConfirmPassword').value;
+
+            if (!validateNameFormat(nameInput)) {
+                alert("Validation Error: Name field only accepts alphabetic characters and spaces.");
+                return;
+            }
+
+            if (!validateEmailFormat(emailInput)) {
+                alert("Validation Error: Please configure a valid email address configuration format.");
+                return;
+            }
+
+            if (!roleInput) {
+                alert("Validation Error: Account role matrix selection mandatory.");
+                return;
+            }
+
+            if (passwordInput.length < 6) {
+                alert("Validation Error: Password requires a minimum scale footprint of 6 characters.");
+                return;
+            }
+
+            if (passwordInput !== confirmPasswordInput) {
+                alert("Validation Error: Provided passphrases do not match. Verify field entries.");
+                return;
+            }
+
+            // PERSIST USER DATA LAYER LOGIC FOR SIMULATING BACKEND ACCOUNT REGISTRATION
+            localStorage.setItem('registeredUserEmail', emailInput.trim().toLowerCase());
+            localStorage.setItem('registeredUserRole', roleInput);
+
+            alert("Registration parameters verified successfully. Moving to Login View.");
+            switchAuthView('loginView');
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('loginEmail').value.trim().toLowerCase();
+            const passwordInput = document.getElementById('loginPassword').value;
+
+            if (!validateEmailFormat(emailInput)) {
+                alert("Validation Error: Invalid email format detected.");
+                return;
+            }
+
+            if (passwordInput.length < 6) {
+                alert("Validation Error: Password requires at least 6 characters.");
+                return;
+            }
+
+            // PULL LOCAL SIGNUP RECORDS FOR ACTIVE IDENTITY VALIDATION
+            const savedEmail = localStorage.getItem('registeredUserEmail');
+            const savedRole = localStorage.getItem('registeredUserRole');
+
+            if (savedEmail && emailInput !== savedEmail) {
+                alert("Authentication Error: Provided email coordinates do not match our registered parameters.");
+                return;
+            }
+
+            // LOCK IDENTITY FOR DYNAMIC PROFILE RE-RENDERING INSIDE GLOBAL WORKSPACE HEADERS
+            localStorage.setItem('userLoginEmail', emailInput);
+
+            // DYNAMIC DISPATCH ROUTING PIPELINE BASED ON REGISTERED ROLES
+            if (savedRole === "Admin") {
+                alert("Access Authorized. Redirecting to Admin Core Telemetry Desk...");
+                window.location.href = "admin.html";
+            } else if (savedRole === "Client") {
+                alert("Access Authorized. Redirecting to Client Travel Workspace...");
+                window.location.href = "client.html";
+            } else {
+                // If roles are empty or non-existent, fallback directly to structural layout pages
+                alert("Access Authorized. No custom roles registered. Routing to default view.");
+                window.location.href = "dashboard.html";
+            }
+        }
+
+        function handleForgotPassword(event) {
+            event.preventDefault();
+            const emailInput = document.getElementById('forgotEmail').value;
+
+            if (!validateEmailFormat(emailInput)) {
+                alert("Validation Error: Invalid email format mapping coordinates.");
+                return;
+            }
+
+            window.location.href = "error.html";
+        }
+
+        // CUSTOM DROPDOWN CONTROL ARRAY HOOKS
+        function toggleCustomSelect(element, event) {
+            event.stopPropagation();
+            element.parentElement.classList.toggle('dropdown-active');
+        }
+
+        function selectDropdownOption(listItem) {
+            const wrapper = listItem.closest('.custom-select-wrapper');
+            const txtLabel = wrapper.querySelector('.selected-dropdown-text');
+            const hiddenInput = wrapper.querySelector('input[type="hidden"]');
+
+            txtLabel.textContent = listItem.textContent;
+            hiddenInput.value = listItem.getAttribute('data-value');
+
+            wrapper.classList.remove('dropdown-active');
+        }
+
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.custom-select-wrapper').forEach(el => {
+                el.classList.remove('dropdown-active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyPass Admin - Flight Operations Manifest</title>
+    <link rel="icon" href="./assets/bg remove.webp">
+
+    <!-- Stylesheet Matrix -->
+    <link rel="stylesheet" href="./root.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+
+    <!-- Icon Fonts & Animation Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body>
+
+    <div class="adminunit-dashboard-wrapper">
+
+        <!-- LEFT NAVIGATION ROUTER SIDEBAR -->
+        <aside class="admin-sidebar-panel">
+            <div class="sidebar-brand-zone">
+                <i class="fas fa-plane brand-logo-icon"></i>
+                <h2>Admin<span>Unit</span></h2>
+            </div>
+
+            <nav class="sidebar-nav-links">
+                <div class="nav-link-item active" onclick="routeDashboardTab('overview-pane', this)">
+                    <i class="fas fa-th-large"></i> Core Overview
+                </div>
+                <div class="nav-link-item" onclick="routeDashboardTab('manifest-pane', this)">
+                    <i class="fas fa-plane-departure"></i> Flight Vectors
+                </div>
+                <div class="nav-link-item" onclick="routeDashboardTab('security-pane', this)">
+                    <i class="fas fa-shield-alt"></i> Security Logs
+                </div>
+                <div class="nav-link-item" onclick="routeDashboardTab('variables-pane', this)">
+                    <i class="fas fa-sliders-h"></i> System Variables
+                </div>
+            </nav>
+
+            <div class="sidebar-footer-zone">
+                <button type="button" class="btn btn-terminate-session" onclick="window.location.href='error.html'">
+                    <i class="fas fa-power-off"></i> Terminate Session
+                </button>
+            </div>
+        </aside>
+
+        <!-- RIGHT STRUCTURAL VIEWSTREAM HUB -->
+        <div class="telemetry-main-container">
+
+            <!-- GLOBAL STICKY TELEMETRY HEADER: Permanently visible above all active nav views -->
+            <header class="telemetry-header-row">
+                <div data-aos="fade-right">
+                    <h1 id="dynamicDashboardTitle">Core System <span>Telemetry</span></h1>
+                </div>
+
+                <div class="operator-identity-deck" data-aos="fade-left">
+                    <!-- Dynamically displays the specific email identity used during portal login authentication -->
+                    <div class="identity-capsule">
+                        <div class="capsule-icon-shield"><i class="fas fa-user-cog"></i></div>
+                        <div class="capsule-meta">
+                            <strong id="dynamicIdentityEmail">hari123@gmail.com</strong> <span>Clearance: Level 1</span>
+                        </div>
+                    </div>
+                    <div class="identity-capsule">
+                        <div class="capsule-icon-shield"><i class="fas fa-network-wired"></i></div>
+                        <div class="capsule-meta">
+                            <strong>Operator Node</strong>
+                            <span>Status: Active</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- ROUTED CONTENT PANE STREAM HOUSING -->
+            <main class="telemetry-viewport-stream">
+
+                <!-- PANE 1: CORE OVERVIEW INTERFACE (DEFAULT ACTIVE) -->
+                <div class="dashboard-content-section active-pane" id="overview-pane"
+                    data-title="Core System Telemetry">
+                    <div class="telemetry-cards-matrix">
+                        <div class="telemetry-luxe-card">
+                            <div class="card-top-header-line">
+                                <h4>Active Flight Nodes</h4><i class="fas fa-check-circle" style="color: #00E676;"></i>
+                            </div>
+                            <div class="card-center-telemetry-metrics">
+                                <h3>99.99%</h3>
+                                <p>Pipeline booking updates matching operational limits.</p>
+                            </div>
+                            <div class="telemetry-progress-line-track">
+                                <div class="progress-line-fill" style="width: 99.99%; background-color: #00E676;"></div>
+                            </div>
+                        </div>
+                        <div class="telemetry-luxe-card">
+                            <div class="card-top-header-line">
+                                <h4>Pending Manifest Audits</h4><i class="fas fa-exclamation-triangle"
+                                    style="color: #d89b4e;"></i>
+                            </div>
+                            <div class="card-center-telemetry-metrics">
+                                <h3>14</h3>
+                                <p>Verification data blocks locked inside tracking queues.</p>
+                            </div>
+                            <div class="telemetry-progress-line-track">
+                                <div class="progress-line-fill" style="width: 35%; background-color: #d89b4e;"></div>
+                            </div>
+                        </div>
+                        <div class="telemetry-luxe-card">
+                            <div class="card-top-header-line">
+                                <h4>Data Transit Latency</h4><i class="fas fa-bolt" style="color: #00b0ff;"></i>
+                            </div>
+                            <div class="card-center-telemetry-metrics">
+                                <h3>&lt; 12ms</h3>
+                                <p>Average transaction processing velocity profile.</p>
+                            </div>
+                            <div class="telemetry-progress-line-track">
+                                <div class="progress-line-fill" style="width: 75%; background-color: #00b0ff;"></div>
+                            </div>
+                        </div>
+                        <div class="telemetry-luxe-card">
+                            <div class="card-top-header-line">
+                                <h4>Memory Shard Space</h4><i class="fas fa-database" style="color: #d89b4e;"></i>
+                            </div>
+                            <div class="card-center-telemetry-metrics">
+                                <h3>4,218</h3>
+                                <p>Distributed system flight allocations running dynamically.</p>
+                            </div>
+                            <div class="telemetry-progress-line-track">
+                                <div class="progress-line-fill" style="width: 65%; background-color: #d89b4e;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANE 2: FLIGHT VECTORS MANIFEST -->
+                <div class="dashboard-content-section" id="manifest-pane" data-title="Flight Node Management">
+                    <div class="dashboard-table-card">
+                        <h3>Live Ticket Routing Manifest Array</h3>
+                        <div class="table-responsive-wrapper">
+                            <table class="premium-data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Passenger Token</th>
+                                        <th>Flight Vector</th>
+                                        <th>Cabin Tier</th>
+                                        <th>Operational Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>SK-4820-A</strong></td>
+                                        <td>JFK &rarr; CDG</td>
+                                        <td>First Class Suites</td>
+                                        <td><span class="badge status-active">Boarding</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>SK-9982-X</strong></td>
+                                        <td>JFK &rarr; CDG</td>
+                                        <td>Business Class</td>
+                                        <td><span class="badge status-completed">Departed</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>SK-1049-M</strong></td>
+                                        <td>CDG &rarr; JFK</td>
+                                        <td>Economy Class</td>
+                                        <td><span class="badge status-pending">Delayed</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PANE 3: SECURITY LOGS -->
+                <div class="dashboard-content-section" id="security-pane" data-title="Security Log Telemetry">
+                    <div class="dashboard-table-card">
+                        <h3>System Access Incidents</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">All tracking metrics
+                            indicate active system firewalls are running securely. Zero security breaches detected
+                            within this server instance.</p>
+                    </div>
+                </div>
+
+                <!-- PANE 4: SYSTEM VARIABLES -->
+                <div class="dashboard-content-section" id="variables-pane" data-title="System Control Variables">
+                    <div class="dashboard-table-card">
+                        <h3>Global Environment Parameters</h3>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Theme configuration
+                            parameters successfully verified and locked into your custom root stylesheet color values.
+                        </p>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Scripts Pipeline -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, easing: 'ease-in-out', once: true, offset: 30 });
+
+        // Dynamic Tab Navigation Router Engine
+        function routeDashboardTab(targetSectionId, clickEventElement) {
+            document.querySelectorAll('.sidebar-nav-links .nav-link-item').forEach(link => link.classList.remove('active'));
+            document.querySelectorAll('.dashboard-content-section').forEach(section => section.classList.remove('active-pane'));
+
+            clickEventElement.classList.add('active');
+            const activeTarget = document.getElementById(targetSectionId);
+
+            if (activeTarget) {
+                activeTarget.classList.add('active-pane');
+
+                // Dynamic Header Text Transition
+                const targetTitle = activeTarget.getAttribute('data-title');
+                const titleContainer = document.getElementById('dynamicDashboardTitle');
+
+                if (targetTitle && titleContainer) {
+                    const words = targetTitle.split(' ');
+                    const lastWord = words.pop();
+                    titleContainer.innerHTML = `${words.join(' ')} <span>${lastWord}</span>`;
+                }
+            }
+        }
+
+
+
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // 1. Extract the authenticated user email token from browser memory
+            const authenticatedEmail = localStorage.getItem('userLoginEmail');
+
+            // 2. Locate the designated target layout DOM element slots
+            const adminEmailSlot = document.getElementById('dynamicIdentityEmail');
+            const clientEmailSlot = document.getElementById('dynamicClientEmail');
+
+            // 3. Inject the email address dynamically if a valid session exists
+            if (authenticatedEmail) {
+                if (adminEmailSlot) adminEmailSlot.textContent = authenticatedEmail;
+                if (clientEmailSlot) clientEmailSlot.textContent = authenticatedEmail;
+                console.log(`RBAC Identity Synced: Displaying session user "${authenticatedEmail}"`);
+            } else {
+                console.warn("Session tracking anomaly: No active email token found in memory matrix.");
+            }
+        });
+
+
+
+    </script>
+</body>
+
+</html>

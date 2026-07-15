@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airline Ticket Booking</title>
+  <link rel="icon" href="./assets/bg remove.webp">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="status.css">
+  <link rel="stylesheet" href="./root.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+
+<body>
+
+  <header class="site-header style-modern">
+    <div class="container header-container">
+      <a href="index.html" class="logo">
+        <img src="./assets/stackly.webp" alt="logo" width="150px" height="50px">
+      </a>
+
+      <nav class="desktop-nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="book.html" class="nav-link">Book Flights</a></li>
+          <li><a href="trips.html" class="nav-link">Manage Trips</a></li>
+          <li><a href="status.html" class="nav-link">Flight Status</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="contact.html" class="btn btn-secondary">Contact</a>
+        <a href="auth.html" class="btn btn-primary">Sign Up</a>
+      </div>
+
+      <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+    </div>
+
+    <div class="mobile-drawer">
+      <nav class="mobile-nav">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="book.html" class="mobile-nav-link active">Book Flights</a></li>
+          <li><a href="trips.html" class="mobile-nav-link">Manage Trips</a></li>
+          <li><a href="status.html" class="mobile-nav-link">Flight Status</a></li>
+        </ul>
+        <div class="mobile-actions">
+          <a href="contact.html" class="btn btn-secondary">Contact</a>
+          <a href="auth.html" class="btn btn-primary">Sign Up</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+
+
+
+
+
+  <section class="status-hero-section">
+    <div class="hero-blur-ambient"></div>
+    <div class="container status-hero-container">
+
+      <div class="status-intro-header" data-aos="fade-up" data-aos-duration="1000">
+        <span class="section-badge"><i class="fas fa-radar"></i> Live Telemetry</span>
+        <h1>Real-Time Flight Intelligence</h1>
+        <p>Monitor exact situational aircraft metrics, live route trajectory vectors, and down-to-the-minute
+          global gate status metrics.</p>
+      </div>
+
+      <div class="status-search-panel card-shadow-velvet card-glow-border" data-aos="fade-up" data-aos-delay="100"
+        data-aos-duration="1000">
+
+        <div class="search-mode-tabs">
+          <button type="button" class="status-tab-btn active" onclick="switchStatusMode('number')">
+            <i class="fas fa-hashtag"></i> Search by Flight Number
+          </button>
+          <button type="button" class="status-tab-btn" onclick="switchStatusMode('route')">
+            <i class="fas fa-map-marked-alt"></i> Search by Route Path
+          </button>
+        </div>
+
+        <form class="status-engine-form">
+          <div class="form-inputs-grid">
+
+            <div class="status-input-group mode-field-wrapper" id="field-flight-num">
+              <label for="statusFlightNo"><i class="fas fa-plane-departure"></i> Flight Number
+                Identifier</label>
+              <input type="text" id="statusFlightNo" placeholder="e.g., SP-204" required>
+            </div>
+
+            <div class="status-input-group mode-field-wrapper dual-route-fields hidden" id="field-route-origin">
+              <label for="statusOrigin"><i class="fas fa-plane-departure"></i> Origin City</label>
+              <input type="text" id="statusOrigin" placeholder="e.g., New York (JFK)">
+            </div>
+
+            <div class="status-input-group mode-field-wrapper dual-route-fields hidden" id="field-route-dest">
+              <label for="statusDest"><i class="fas fa-plane-arrival"></i> Destination City</label>
+              <input type="text" id="statusDest" placeholder="e.g., Paris (CDG)">
+            </div>
+
+            <div class="status-input-group">
+              <label><i class="far fa-calendar-alt"></i> Departure Timeline</label>
+
+              <!-- PREMIUM CUSTOM SELECT METHOD ARCHITECTURE -->
+              <div class="custom-select-wrapper status-custom-select-wrapper">
+                <div class="custom-select-btn" onclick="toggleCustomSelect(this, event)">
+                  <span class="selected-dropdown-text">Today (14 Jul)</span>
+                  <!-- <i class="fas fa-chevron-down arrow-indicator"></i> -->
+                </div>
+
+                <ul class="custom-options-list">
+                  <li data-value="yesterday" onclick="selectDropdownOption(this)">Yesterday (13 Jul)</li>
+                  <li data-value="today" class="selected" onclick="selectDropdownOption(this)">Today (14 Jul)</li>
+                  <li data-value="tomorrow" onclick="selectDropdownOption(this)">Tomorrow (15 Jul)</li>
+                </ul>
+
+                <!-- Hidden structural input matrix configured to "today" by default -->
+                <input type="hidden" id="departureTimeline" name="departure_timeline" value="today">
+              </div>
+            </div>
+
+          </div>
+
+          <button type="submit" class="btn btn-primary tracking-search-btn">
+            Track Active Flight <i class="fas fa-satellite-dish"></i>
+          </button>
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <section class="live-telemetry-section" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container telemetry-container">
+
+      <!-- Left Panel: Cinematic Map Interface Canvas Frame -->
+      <div class="radar-canvas-panel card-shadow-velvet card-glow-border" data-aos="fade-right" data-aos-delay="100">
+        <div class="radar-header-bar">
+          <div class="radar-status-dot">
+            <span class="pulse-ring"></span>
+            <span class="solid-dot"></span>
+          </div>
+          <h5>Live Route Trajectory Feed</h5>
+          <span class="telemetry-callsign">Callsign: SKP-204</span>
+        </div>
+
+        <!-- Immersive Vector Map Graphic Housing Canvas Container -->
+        <div class="map-graphic-viewport">
+          <div class="map-overlay-vignette"></div>
+          <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=800&auto=format&fit=crop"
+            alt="Satellite Radar Vector Tracking Matrix Grid Overlay">
+
+          <!-- Animated UI Coordinates Layer elements tracking across vector layout -->
+          <div class="radar-aircraft-blip" style="top: 45%; left: 60%;">
+            <i class="fas fa-plane"></i>
+            <span class="blip-label">SP-204 (ALT: 36,000ft)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel: Advanced Metric Matrix Data Array Stream -->
+      <div class="telemetry-metrics-panel" data-aos="fade-left" data-aos-delay="200">
+
+        <!-- Metric Block 1: Ground Velocity Tracker -->
+        <div class="telemetry-metric-tile card-shadow-velvet">
+          <div class="metric-icon-housing velocity-tint">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <div class="metric-data-block">
+            <span>Ground Speed</span>
+            <h3>542 <small>kts</small></h3>
+            <p><i class="fas fa-arrow-up trend-up"></i> +12 kts tailwind assistance factor tracking logs.</p>
+          </div>
+        </div>
+
+        <!-- Metric Block 2: Pressure Altitude Barometer -->
+        <div class="telemetry-metric-tile card-shadow-velvet">
+          <div class="metric-icon-housing altitude-tint">
+            <i class="fas fa-mountain"></i>
+          </div>
+          <div class="metric-data-block">
+            <span>Barometric Altitude</span>
+            <h3>36,000 <small>ft</small></h3>
+            <p>Stable cruise profile target reached within standard timeline boundaries.</p>
+          </div>
+        </div>
+
+        <!-- Metric Block 3: Dynamic Outside Air Temp Barometer -->
+        <div class="telemetry-metric-tile card-shadow-velvet">
+          <div class="metric-icon-housing weather-tint">
+            <i class="fas fa-thermometer-half"></i>
+          </div>
+          <div class="metric-data-block">
+            <span>Ambient Temperature</span>
+            <h3>-54°C <small>ISA Standard</small></h3>
+            <p><i class="fas fa-wind"></i> Calm upper atmosphere tracking profiles across current route vectors.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <section class="seat-allocation-section" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container seat-container">
+
+      <!-- Left Column: Premium Interactive Seating Matrix -->
+      <div class="seat-matrix-panel card-shadow-velvet card-glow-border" data-aos="fade-right" data-aos-delay="100">
+        <div class="matrix-header-bar">
+          <h5>Cabin Seating Map</h5>
+          <span class="aircraft-tier-badge">Main Deck • Business Class</span>
+        </div>
+
+        <div class="seat-map-viewport">
+          <div class="seat-legend-row">
+            <div class="legend-item"><span class="seat-dot available"></span> Available</div>
+            <div class="legend-item"><span class="seat-dot occupied"></span> Occupied</div>
+            <div class="legend-item"><span class="seat-dot selected-premium"></span> Invoiced</div>
+          </div>
+
+          <!-- Row Grid Mockup Architecture -->
+          <div class="cabin-grid-layout">
+            <div class="row-index">Row 11</div>
+            <div class="row-seats">
+              <button type="button" class="seat-btn occupied" disabled>A</button>
+              <button type="button" class="seat-btn available">B</button>
+              <span class="cabin-aisle-spacer"></span>
+              <button type="button" class="seat-btn occupied" disabled>C</button>
+              <button type="button" class="seat-btn available">D</button>
+            </div>
+
+            <div class="row-index">Row 12</div>
+            <div class="row-seats">
+              <button type="button" class="seat-btn selected-premium">A</button>
+              <button type="button" class="seat-btn occupied" disabled>B</button>
+              <span class="cabin-aisle-spacer"></span>
+              <button type="button" class="seat-btn available">C</button>
+              <button type="button" class="seat-btn occupied" disabled>D</button>
+            </div>
+
+            <div class="row-index">Row 14</div>
+            <div class="row-seats">
+              <button type="button" class="seat-btn available">A</button>
+              <button type="button" class="seat-btn available">B</button>
+              <span class="cabin-aisle-spacer"></span>
+              <button type="button" class="seat-btn occupied" disabled>C</button>
+              <button type="button" class="seat-btn available">D</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Upgrade Cross-Sell Context Card -->
+      <div class="seat-upgrade-panel" data-aos="fade-left" data-aos-delay="200">
+        <div class="upgrade-tier-showcase card-shadow-velvet">
+          <span class="luxe-badge"><i class="fas fa-crown"></i> Exclusive Upgrade</span>
+          <h3>First Class Private Suites</h3>
+          <p>Switch your current itinerary routing directly into an individual fully enclosed sliding door suite
+            featuring sliding privacy partitions and individual wardrobe units.</p>
+
+          <ul class="luxe-perk-list">
+            <li><i class="fas fa-check"></i> 180° Flat-bed Configuration</li>
+            <li><i class="fas fa-check"></i> Caviar & Champagne Dining Access</li>
+            <li><i class="fas fa-check"></i> Priority Airport VIP Fast-Track Security</li>
+          </ul>
+
+          <div class="upgrade-pricing-footer">
+            <div class="pricing-block">
+              <span>Upgrade Option Rate</span>
+              <h3>+$349</h3>
+            </div>
+            <a href="error.html" class="btn btn-primary premium-upgrade-btn">Confirm Upgrade</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+  <section class="amenities-preorder-section" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container amenities-container">
+
+      <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+        <span class="section-badge">Cabin Enhancements</span>
+        <h2>Tailor Your In-Flight Environment</h2>
+        <p>Configure extra convenience coordinates before crossing the gate threshold. Packages link instantly to your
+          mobile boarding pass footprint.</p>
+      </div>
+
+      <div class="amenities-interactive-grid">
+
+        <div class="amenity-order-card card-shadow-velvet card-glow-border" data-aos="zoom-in-up" data-aos-delay="100">
+          <div class="amenity-visual-housing">
+            <i class="fas fa-wifi"></i>
+            <span class="amenity-availability-tag neon-green">Available Now</span>
+          </div>
+          <div class="amenity-body-details">
+            <h4>High-Speed Satellite Wi-Fi</h4>
+            <p>Unrestricted access tracks optimized for continuous VPN channels, multimedia streaming profiles, and
+              secure video teleconferencing pipelines.</p>
+            <div class="amenity-pricing-row">
+              <div class="amenity-rate">
+                <span>Full Flight Pass</span>
+                <strong>$19</strong>
+              </div>
+              <button type="button" class="btn btn-secondary btn-sm purchase-toggle-btn">Pre-Order</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="amenity-order-card card-shadow-velvet card-glow-border" data-aos="zoom-in-up" data-aos-delay="200">
+          <div class="amenity-visual-housing">
+            <i class="fas fa-shopping-bag"></i>
+            <span class="amenity-availability-tag neon-blue">Pre-Order Window Open</span>
+          </div>
+          <div class="amenity-body-details">
+            <h4>Bespoke Duty-Free Boutique</h4>
+            <p>Browse elite watch curation, premium fragrance lines, and luxury electronics globally. Items deliver
+              locked directly to your cabin seat on boarding.</p>
+            <div class="amenity-pricing-row">
+              <div class="amenity-rate">
+                <span>Catalog Minimum</span>
+                <strong>$0 <small>Fee</small></strong>
+              </div>
+              <a href="error.html" class="btn btn-secondary btn-sm purchase-toggle-btn">Browse Shop</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <section class="status-support-section" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container support-terminal-container">
+
+      <div class="terminal-claim-box card-glass-premium card-shadow-velvet" data-aos="fade-right" data-aos-delay="100">
+        <div class="terminal-badge-icon error-tint">
+          <i class="fas fa-calculator"></i>
+        </div>
+        <h3>Disruption & Delay Resolution</h3>
+        <p>Was your active schedule delayed by more than 3 hours or canceled? Direct direct direct structural passenger
+          tracking rules entitle you to institutional reimbursement credits.</p>
+
+        <div class="eligibility-checker-form">
+          <a href="error.html" class="btn btn-primary check-eligibility-btn">Check Claim Eligibility <i
+              class="fas fa-balance-scale"></i></a>
+        </div>
+      </div>
+
+      <div class="terminal-chat-box card-shadow-velvet card-glow-border" data-aos="fade-left" data-aos-delay="200">
+        <div class="terminal-badge-icon blue-tint">
+          <i class="fas fa-comments-dollar"></i>
+        </div>
+        <h3>Operations Help Desk</h3>
+        <p>Need instant tracking rebooking routing parameters modified right now? Launch our secure messaging center to
+          interface with terminal agents.</p>
+
+        <div class="chat-status-indicator">
+          <span class="chat-live-pulse"></span>
+          <span>Average Response Time: <strong>&lt; 2 Minutes</strong></span>
+        </div>
+
+        <a href="contact.html" class="btn btn-secondary start-chat-btn">Initialize Live Chat</a>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <section class="status-final-cta" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container status-cta-container">
+
+      <div class="status-cta-content" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1000">
+        <span class="section-badge modern-white">Telemetry On The Go</span>
+        <h2>Track Flight Vectors From Anywhere</h2>
+        <p>Download the official SkyPass application to unlock gate-departure push updates, offline boarding
+          configuration tokens, and instant satellite rerouting alerts.</p>
+
+        <div class="status-app-badges">
+          <a href="error.html" class="status-download-btn">
+            <i class="fab fa-apple"></i>
+            <div class="btn-lbl-text">
+              <span>Download on the</span>
+              <strong>App Store</strong>
+            </div>
+          </a>
+          <a href="error.html" class="status-download-btn">
+            <i class="fab fa-google-play"></i>
+            <div class="btn-lbl-text">
+              <span>GET IT ON</span>
+              <strong>Google Play</strong>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="status-cta-visual" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+        <div class="status-visual-glow"></div>
+        <div class="status-phone-mockup">
+          <div class="status-phone-screen">
+            <div class="status-app-header">
+              <span class="status-app-logo">✈ SkyPass Live</span>
+              <i class="fas fa-satellite"></i>
+            </div>
+            <div class="status-app-card mobile-radar-view">
+              <span class="status-card-title">Live Tracking Status</span>
+              <div class="status-mini-map">
+                <i class="fas fa-plane status-map-plane-icon"></i>
+              </div>
+              <div class="status-ticket-meta">
+                <span>Alt: 36,000 ft</span>
+                <span>Spd: 542 kts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+
+
+
+
+  <footer class="site-footer style-modern-corporate">
+    <div class="container footer-container">
+
+      <div class="footer-brand-section">
+        <a href="index.html" class="footer-logo">
+          <img src="./assets/stackly.webp" alt="logo" width="150px" height="50px">
+        </a>
+        <p class="footer-brand-desc">
+          Explore the world with seamless booking, premium comforts, and unparalleled flight connectivity
+          across continents.
+        </p>
+        <div class="footer-socials">
+          <a href="error.html" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="error.html" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="error.html" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="error.html" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links-section">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links-list">
+          <li><a href="index.html" class="footer-link active">Home</a></li>
+          <li><a href="book.html" class="footer-link">Book Flights</a></li>
+          <li><a href="trips.html" class="footer-link">Manage Trips</a></li>
+          <li><a href="status.html" class="footer-link">Flight Status</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+
+        </ul>
+      </div>
+
+      <div class="footer-links-section">
+        <h4 class="footer-heading">Support</h4>
+        <ul class="footer-links-list">
+          <li><a href="error.html" class="footer-link">Help Center</a></li>
+          <li><a href="error.html" class="footer-link">Baggage Info</a></li>
+          <li><a href="error.html" class="footer-link">Refund Policy</a></li>
+          <li><a href="error.html" class="footer-link">Travel Advisory</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-section">
+        <h4 class="footer-heading">Contact Us</h4>
+        <ul class="footer-contact-list">
+          <li><i class="fas fa-phone-alt"></i> +1 (800) 555-0199</li>
+          <li><i class="fas fa-envelope"></i> support@skypass.com</li>
+          <li><i class="fas fa-map-marker-alt"></i> 100 Aviation Way, NY</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p>&copy; 2026 SkyPass Airlines. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="error.html">Privacy Policy</a>
+          <a href="error.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <script src="script.js"></script>
+
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100
+    });
+  </script>
+
+  <script>
+
+    function switchStatusMode(mode) {
+      // Toggle tab buttons tracking active states
+      const tabs = document.querySelectorAll('.status-tab-btn');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      // Cache targeting layout identifiers
+      const flightNumField = document.getElementById('field-flight-num');
+      const routeOriginField = document.getElementById('field-route-origin');
+      const routeDestField = document.getElementById('field-route-dest');
+      const formGrid = document.querySelector('.form-inputs-grid');
+
+      if (mode === 'number') {
+        flightNumField.classList.remove('hidden');
+        routeOriginField.classList.add('hidden');
+        routeDestField.classList.add('hidden');
+
+        // Restore basic validation rules
+        document.getElementById('statusFlightNo').required = true;
+        document.getElementById('statusOrigin').required = false;
+        document.getElementById('statusDest').required = false;
+      } else {
+        flightNumField.classList.add('hidden');
+        routeOriginField.classList.remove('hidden');
+        routeDestField.classList.remove('hidden');
+
+        // Swap dynamic structural validations rules
+        document.getElementById('statusFlightNo').required = false;
+        document.getElementById('statusOrigin').required = true;
+        document.getElementById('statusDest').required = true;
+      }
+    }
+
+
+
+
+
+
+
+    function toggleCustomSelect(element, event) {
+      event.stopPropagation();
+      const wrapper = element.parentElement;
+
+      document.querySelectorAll('.custom-select-wrapper').forEach(el => {
+        if (el !== wrapper) el.classList.remove('dropdown-active');
+      });
+
+      wrapper.classList.toggle('dropdown-active');
+    }
+
+    function selectDropdownOption(listItem) {
+      const wrapper = listItem.closest('.custom-select-wrapper');
+      const txtLabel = wrapper.querySelector('.selected-dropdown-text');
+      const hiddenInput = wrapper.querySelector('input[type="hidden"]');
+
+      // Manage list highlighting active states cleanly
+      wrapper.querySelectorAll('.custom-options-list li').forEach(li => li.classList.remove('selected'));
+      listItem.classList.add('selected');
+
+      const chosenVal = listItem.getAttribute('data-value');
+      const chosenText = listItem.textContent;
+
+      txtLabel.textContent = chosenText;
+      hiddenInput.value = chosenVal;
+
+      wrapper.classList.remove('dropdown-active');
+      console.log(`Timeline filter selected: ${hiddenInput.id} set to "${chosenVal}"`);
+    }
+
+    // Universal click boundary checker to dismiss open lists automatically
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.custom-select-wrapper').forEach(el => {
+        el.classList.remove('dropdown-active');
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>

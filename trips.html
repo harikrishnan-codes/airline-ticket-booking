@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airline Ticket Booking</title>
+    <link rel="icon" href="./assets/bg remove.webp">
+
+    <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="trips.css">
+<link rel="stylesheet" href="./root.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+
+<body>
+
+    <header class="site-header style-modern">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="./assets/stackly.webp" alt="logo" width="150px" height="50px">
+            </a>
+
+            <nav class="desktop-nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li><a href="book.html" class="nav-link">Book Flights</a></li>
+                    <li><a href="trips.html" class="nav-link">Manage Trips</a></li>
+                    <li><a href="status.html" class="nav-link">Flight Status</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="contact.html" class="btn btn-secondary">Contact</a>
+                <a href="auth.html" class="btn btn-primary">Sign Up</a>
+            </div>
+
+            <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+
+        <div class="mobile-drawer">
+            <nav class="mobile-nav">
+                <ul class="mobile-nav-list">
+                    <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+                    <li><a href="book.html" class="mobile-nav-link active">Book Flights</a></li>
+                    <li><a href="trips.html" class="mobile-nav-link">Manage Trips</a></li>
+                    <li><a href="status.html" class="mobile-nav-link">Flight Status</a></li>
+                </ul>
+                <div class="mobile-actions">
+                    <a href="contact.html" class="btn btn-secondary">Contact</a>
+                    <a href="auth.html" class="btn btn-primary">Sign Up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+
+
+
+
+
+    <section class="manage-hero-section">
+  <div class="container manage-hero-container">
+    
+    <!-- Left Column: Premium Welcome & Branding Copy -->
+    <div class="manage-intro-content" data-aos="fade-right" data-aos-duration="1000">
+      <span class="hero-badge">Reservation Control</span>
+      <h1>Your Entire Journey, Completely Refined</h1>
+      <p>Modify active flight dates, choose luxury cabin seating charts, pre-order Michelin-star culinary arrangements, or print digital boarding verification documents smoothly.</p>
+      
+      <div class="quick-support-hint">
+        <i class="fas fa-info-circle"></i>
+        <span>Changes made within 24 hours of flight creation incur absolute zero change fees.</span>
+      </div>
+    </div>
+
+    <!-- Right Column: Verification Credential Card -->
+    <div class="manage-lookup-card card-shadow-velvet card-glow-border" data-aos="fade-left" data-aos-duration="1000">
+      <div class="card-title-block">
+        <h3>Retrieve Your Reservation</h3>
+        <p>Enter details located on your digital receipt layout.</p>
+      </div>
+
+      <form class="lookup-form" action="trip-details.html" method="POST">
+        <div class="input-element-group">
+          <label for="bookingRef"><i class="fas fa-ticket-alt"></i> Booking Reference (PNR)</label>
+          <input type="text" id="bookingRef" placeholder="e.g., X7Y3PL" maxlength="6" required>
+        </div>
+
+        <div class="input-element-group">
+          <label for="lastName"><i class="fas fa-user"></i> Passenger Last Name</label>
+          <input type="text" id="lastName" placeholder="e.g., Vance" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary fetch-trip-btn">
+          Find My Flight <i class="fas fa-search"></i>
+        </button>
+      </form>
+
+      <div class="lookup-card-footer">
+        <span>Frequent Flyer?</span>
+        <a href="auth.html" class="inline-login-link">Log in to your SkyPass profile</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="document-hub-section" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container hub-container">
+    
+    <!-- Left Panel: Interactive Readiness Metrics -->
+    <div class="readiness-panel" data-aos="fade-right" data-aos-delay="100">
+      <div class="circular-progress-box">
+        <svg class="progress-svg" viewBox="0 0 100 100">
+          <circle class="bg-ring" cx="50" cy="50" r="45"></circle>
+          <circle class="fill-ring" cx="50" cy="50" r="45"></circle>
+        </svg>
+        <div class="progress-percentage-label">
+          <strong>66%</strong>
+          <span>Ready to Fly</span>
+        </div>
+      </div>
+      <div class="readiness-meta">
+        <h4>Pre-Flight Document Status</h4>
+        <p>2 out of 3 international security parameters verified for your itinerary matrix.</p>
+      </div>
+    </div>
+
+    <!-- Right Panel: Step-by-Step Security Items -->
+    <div class="checklist-panel" data-aos="fade-left" data-aos-delay="200">
+      
+      <!-- Row Item 1 -->
+      <div class="checklist-strip item-verified">
+        <div class="status-indicator-dot">
+          <i class="fas fa-check"></i>
+        </div>
+        <div class="strip-details">
+          <h5>Passport Validation Logs</h5>
+          <p>Verified. Expiration date exceeds the mandatory 6-month international entry window rule.</p>
+        </div>
+        <span class="system-badge-tag secure">Secure</span>
+      </div>
+
+      <!-- Row Item 2 -->
+      <div class="checklist-strip item-verified">
+        <div class="status-indicator-dot">
+          <i class="fas fa-check"></i>
+        </div>
+        <div class="strip-details">
+          <h5>Schengen Visa Entry Clearance</h5>
+          <p>Verified. Electronic travel verification match linked to passport configuration profile.</p>
+        </div>
+        <span class="system-badge-tag secure">Secure</span>
+      </div>
+
+      <!-- Row Item 3 -->
+      <div class="checklist-strip item-pending">
+        <div class="status-indicator-dot">
+          <i class="fas fa-exclamation"></i>
+        </div>
+        <div class="strip-details">
+          <h5>Biometric Declaration Form</h5>
+          <p>Action Required. Electronic customs declaration must be filed 24 hours prior to departure window.</p>
+        </div>
+        <a href="error.html" class="btn btn-secondary btn-sm action-trigger-btn">Complete</a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="manage-dashboard-section" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container dashboard-container">
+    
+    <!-- Left Column: Primary Active Flight Route Details -->
+    <div class="active-itinerary-panel card-shadow-velvet card-glow-border" data-aos="fade-right" data-aos-delay="100">
+      <div class="panel-header-row">
+        <span class="pnr-marker">Booking Reference: <strong>X7Y3PL</strong></span>
+        <span class="flight-operational-status status-confirmed">Confirmed</span>
+      </div>
+
+      <div class="route-display-matrix">
+        <div class="airport-node">
+          <h2>JFK</h2>
+          <span>New York</span>
+          <strong>14:35</strong>
+          <small>Mon, 12 Oct</small>
+        </div>
+
+        <div class="route-path-flow">
+          <span class="aircraft-model">Boeing 777-300ER</span>
+          <div class="flow-line-container">
+            <span class="flow-dot"></span>
+            <span class="flow-line-dash"></span>
+            <i class="fas fa-plane"></i>
+            <span class="flow-line-dash"></span>
+            <span class="flow-dot"></span>
+          </div>
+          <span class="flight-duration-tag">7h 40m (Non-stop)</span>
+        </div>
+
+        <div class="airport-node destination-node">
+          <h2>CDG</h2>
+          <span>Paris</span>
+          <strong>04:15</strong>
+          <small>Tue, 13 Oct</small>
+        </div>
+      </div>
+
+      <div class="passenger-summary-row">
+        <div class="passenger-meta-block">
+          <i class="fas fa-user-tie"></i>
+          <div>
+            <span>Primary Passenger</span>
+            <strong>Marcus Vance</strong>
+          </div>
+        </div>
+        <div class="passenger-meta-block">
+          <i class="fas fa-couch"></i>
+          <div>
+            <span>Assigned Seat</span>
+            <strong>12A (Window)</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Premium Quick Management Actions Grid -->
+    <div class="management-actions-panel" data-aos="fade-left" data-aos-delay="200">
+      
+      <!-- Action Card 1: Reschedule -->
+      <div class="action-tile-card card-shadow-velvet">
+        <div class="action-icon-box tint-blue">
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="action-card-text">
+          <h4>Modify Flight Dates</h4>
+          <p>Change flight times or destination tracking paths instantly.</p>
+        </div>
+        <a href="error.html" class="action-overlay-trigger-link"><i class="fas fa-chevron-right"></i></a>
+      </div>
+
+      <!-- Action Card 2: Seats -->
+      <div class="action-tile-card card-shadow-velvet">
+        <div class="action-icon-box tint-gold">
+          <i class="fas fa-chair"></i>
+        </div>
+        <div class="action-card-text">
+          <h4>Upgrade Seat Configuration</h4>
+          <p>Switch to extra-legroom or first-class private flatbed suites.</p>
+        </div>
+        <a href="error.html" class="action-overlay-trigger-link"><i class="fas fa-chevron-right"></i></a>
+      </div>
+
+      <!-- Action Card 3: Dining -->
+      <div class="action-tile-card card-shadow-velvet">
+        <div class="action-icon-box tint-green">
+          <i class="fas fa-utensils"></i>
+        </div>
+        <div class="action-card-text">
+          <h4>Pre-Order Cabin Meals</h4>
+          <p>Configure dietary profiles or select upscale menu channels.</p>
+        </div>
+        <a href="error.html" class="action-overlay-trigger-link"><i class="fas fa-chevron-right"></i></a>
+      </div>
+
+      <!-- Action Card 4: Cancel -->
+      <div class="action-tile-card card-shadow-velvet risk-action">
+        <div class="action-icon-box tint-red">
+          <i class="fas fa-plane-slash"></i>
+        </div>
+        <div class="action-card-text">
+          <h4>Cancel Reservation Tier</h4>
+          <p>Process safe ticket cancellations and review refund balances.</p>
+        </div>
+        <a href="error.html" class="action-overlay-trigger-link"><i class="fas fa-chevron-right"></i></a>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="trip-upgrades-section" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container upgrades-container">
+    
+    <!-- Option Card 1: Lounge Access -->
+    <div class="upgrade-option-card card-shadow-velvet card-glow-border" data-aos="fade-up" data-aos-delay="100">
+      <div class="upgrade-main-info">
+        <div class="upgrade-title-row">
+          <span class="upgrade-badge luxe">Premium Add-on</span>
+          <h3>SkyPass Club Lounge Access</h3>
+        </div>
+        <p>Unlock sanctuary conditions at the terminal. Includes high-speed private Wi-Fi networks, dynamic self-service mixology bars, and individual workspace pods.</p>
+        <ul class="upgrade-perks-brief">
+          <li><i class="fas fa-check"></i> JFK Terminal 4 & CDG Terminal 2E Locations</li>
+          <li><i class="fas fa-check"></i> Complimentary Hot Buffet Options</li>
+          <li><i class="fas fa-check"></i> Private Shower Facilities</li>
+        </ul>
+      </div>
+      <div class="upgrade-action-sidebar">
+        <div class="upgrade-price-display">
+          <span>Per Passenger</span>
+          <strong>$59</strong>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm toggle-upgrade-btn">Add Pass</button>
+      </div>
+    </div>
+
+    <!-- Option Card 2: Travel Insurance -->
+    <div class="upgrade-option-card card-shadow-velvet card-glow-border" data-aos="fade-up" data-aos-delay="200">
+      <div class="upgrade-main-info">
+        <div class="upgrade-title-row">
+          <span class="upgrade-badge safety">Protection</span>
+          <h3>Elite Flight Interruption Shield</h3>
+        </div>
+        <p>Safeguard your trip investment profiles completely against unexpected dynamic shift structural modifications or cancellation triggers.</p>
+        <ul class="upgrade-perks-brief">
+          <li><i class="fas fa-check"></i> 100% Ticket Restitution for Medical Cancellations</li>
+          <li><i class="fas fa-check"></i> up to $1,500 Missing Baggage Protection Logs</li>
+          <li><i class="fas fa-check"></i> Zero Change Fee Rebooking Assurances</li>
+        </ul>
+      </div>
+      <div class="upgrade-action-sidebar">
+        <div class="upgrade-price-display">
+          <span>Per Passenger</span>
+          <strong>$32</strong>
+        </div>
+        <button type="button" class="btn btn-secondary btn-sm toggle-upgrade-btn">Secure Trip</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+<section class="travel-alerts-section" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container alerts-container">
+
+    <div class="section-header">
+      <span class="section-badge">Pre-Flight Briefing</span>
+      <h2>Active Destination Advisories</h2>
+      <p>Review critical operations updates, weather conditions, and arrival terminal protocols linked to your flight path.</p>
+    </div>
+
+    <div class="alerts-stack-wrapper">
+
+      <div class="alert-banner-card advisory card-shadow-velvet card-glow-border" data-aos="fade-up" data-aos-delay="100">
+        <div class="alert-icon-box">
+          <i class="fas fa-cloud-sun-rain"></i>
+        </div>
+        <div class="alert-details-text">
+          <div class="alert-meta-row">
+            <h5>Destination Weather Notice</h5>
+            <span class="alert-time-stamp">Updated 10m ago</span>
+          </div>
+          <p>Light seasonal rainfall and crosswinds are currently reported at Paris (CDG). While flight paths remain completely unaffected, minor holding patterns may occur during terminal approaches.</p>
+        </div>
+      </div>
+
+      <div class="alert-banner-card info card-shadow-velvet card-glow-border" data-aos="fade-up" data-aos-delay="200">
+        <div class="alert-icon-box">
+          <i class="fas fa-info-circle"></i>
+        </div>
+        <div class="alert-details-text">
+          <div class="alert-meta-row">
+            <h5>Lounge Renovation Tracking</h5>
+            <span class="alert-time-stamp">Updated 2h ago</span>
+          </div>
+          <p>The SkyPass Business Lounge at JFK Terminal 4 is undergoing minor architectural seating updates. Elite status travelers are invited to utilize our partner flagship spaces located near Gate B22.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="manage-final-cta" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container cta-container">
+    
+    <div class="cta-content" data-aos="fade-right" data-aos-delay="100" data-aos-duration="1000">
+      <span class="section-badge">SkyPass Mobile</span>
+      <h2>Real-Time Changes, Straight to Your Phone</h2>
+      <p>Download the official SkyPass app to receive instant gate change alerts, track your baggage status on the go, and update your seating arrangement with a single tap.</p>
+      
+      <div class="app-badges">
+        <a href="error.html" class="app-btn">
+          <i class="fab fa-apple"></i>
+          <div class="app-btn-text">
+            <span>Download on the</span>
+            <strong>App Store</strong>
+          </div>
+        </a>
+        <a href="error.html" class="app-btn">
+          <i class="fab fa-google-play"></i>
+          <div class="app-btn-text">
+            <span>GET IT ON</span>
+            <strong>Google Play</strong>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="cta-visual" data-aos="fade-left" data-aos-delay="200" data-aos-duration="1000">
+      <div class="visual-glow"></div>
+      <div class="phone-mockup">
+        <div class="phone-screen">
+          <div class="app-header">
+            <span class="app-logo">✈ SkyPass Club</span>
+            <i class="fas fa-qrcode"></i>
+          </div>
+          <div class="app-card mobile-boarding-pass">
+            <span class="card-title">Digital Boarding Pass</span>
+            <div class="ticket-route">
+              <div>
+                <strong>JFK</strong>
+                <span>New York</span>
+              </div>
+              <i class="fas fa-long-arrow-alt-right"></i>
+              <div>
+                <strong>CDG</strong>
+                <span>Paris</span>
+              </div>
+            </div>
+            <div class="barcode-wrapper">
+              <i class="fas fa-barcode"></i>
+              <span>SK-998271-X</span>
+            </div>
+            <div class="ticket-meta">
+              <span>Seat 12A</span>
+              <span>Zone 1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+    <footer class="site-footer style-modern-corporate">
+        <div class="container footer-container">
+
+            <div class="footer-brand-section">
+                <a href="index.html" class="footer-logo">
+                    <img src="./assets/stackly.webp" alt="logo" width="150px" height="50px">
+                </a>
+                <p class="footer-brand-desc">
+                    Explore the world with seamless booking, premium comforts, and unparalleled flight connectivity
+                    across continents.
+                </p>
+                <div class="footer-socials">
+                    <a href="error.html" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="error.html" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="error.html" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="error.html" class="social-icon" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links-section">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links-list">
+                    <li><a href="index.html" class="footer-link active">Home</a></li>
+                    <li><a href="book.html" class="footer-link">Book Flights</a></li>
+                    <li><a href="trips.html" class="footer-link">Manage Trips</a></li>
+                    <li><a href="status.html" class="footer-link">Flight Status</a></li>
+                                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+
+                </ul>
+            </div>
+
+            <div class="footer-links-section">
+                <h4 class="footer-heading">Support</h4>
+                <ul class="footer-links-list">
+                    <li><a href="error.html" class="footer-link">Help Center</a></li>
+                    <li><a href="error.html" class="footer-link">Baggage Info</a></li>
+                    <li><a href="error.html" class="footer-link">Refund Policy</a></li>
+                    <li><a href="error.html" class="footer-link">Travel Advisory</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-section">
+                <h4 class="footer-heading">Contact Us</h4>
+                <ul class="footer-contact-list">
+                    <li><i class="fas fa-phone-alt"></i> +1 (800) 555-0199</li>
+                    <li><i class="fas fa-envelope"></i> support@skypass.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> 100 Aviation Way, NY</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container footer-bottom-container">
+                <p>&copy; 2026 SkyPass Airlines. All rights reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="error.html">Privacy Policy</a>
+                    <a href="error.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="script.js"></script>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+    </script>
+
+    <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  const upgradeButtons = document.querySelectorAll('.toggle-upgrade-btn');
+
+  upgradeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isSelected = btn.classList.contains('selected');
+      
+      if (!isSelected) {
+        btn.classList.add('selected');
+        btn.innerHTML = '<i class="fas fa-check"></i> Added';
+      } else {
+        btn.classList.remove('selected');
+        // Restores text configuration dynamically depending on card class context
+        if (btn.closest('.upgrade-option-card').querySelector('.badge').classList.contains('luxe')) {
+          btn.textContent = 'Add Pass';
+        } else {
+          btn.textContent = 'Secure Trip';
+        }
+      }
+    });
+  });
+});
+
+    </script>
+
+</body>
+
+</html>
