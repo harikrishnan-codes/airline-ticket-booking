@@ -20,6 +20,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+
+// உலகளாவிய மாறிகள் நிலைத்தன்மை
+let passengerState = {
+    adults: 1,
+    children: 0,
+    cabinClass: 'Economy'
+};
+
+// கஸ்டம் டிராப்டவுனை ஆன்/ஆஃப் செய்யும் செயல்பாடு
+function togglePassengerSelect(element, event) {
+    event.stopPropagation();
+    element.parentElement.classList.toggle('dropdown-active');
+}
+
+// பிளஸ்/மைனஸ் கணக்கீட்டு மேலாண்மை
+function modifyPassengerCount(type, val, event) {
+    event.stopPropagation(); // டிராப்டவுன் மூடுவதைத் தடுக்கிறது
+    
+    let currentVal = passengerState[type];
+    let newVal = currentVal + val;
+
+    // வணிகக் கட்டுப்பாடுகள் (குறைந்தபட்சம் 1 பெரியவர் இருக்க வேண்டும், நெகட்டிவ் எண்கள் வரக்கூடாது)
+    if (type === 'adults' && newVal < 1) return;
+    if (type === 'children' && newVal < 0) return;
+    
+    passengerState[type] = newVal;
+    document.getElementById(`count-${type}`).textContent = newVal;
+    
+    updatePassengerDisplayLabel();
+}
+
+ function selectCabinClass(className, event) {
+    event.stopPropagation();
+    passengerState.cabinClass = className;
+    updatePassengerDisplayLabel();
+}
+
+ function updatePassengerDisplayLabel() {
+    const totalPassengers = passengerState.adults + passengerState.children;
+    let passengerText = `${totalPassengers} Passenger${totalPassengers > 1 ? 's' : ''}`;
+    
+    if (passengerState.children === 0) {
+        passengerText = `${passengerState.adults} Adult${passengerState.adults > 1 ? 's' : ''}`;
+    }
+    
+     document.getElementById('passengerDisplayLabel').textContent = `${passengerText}, ${passengerState.cabinClass}`;
+}
+
+ document.addEventListener('click', () => {
+    document.querySelectorAll('.passenger-dropdown-wrapper').forEach(el => {
+        el.classList.remove('dropdown-active');
+    });
+});
+
+
+
+
+
+
 // navlink highlight js 
 
 document.addEventListener('DOMContentLoaded', () => {

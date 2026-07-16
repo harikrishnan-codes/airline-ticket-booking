@@ -97,8 +97,10 @@
       <div class="booking-widget" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
         <div class="widget-tabs">
           <button class="tab-btn active"><i class="fas fa-exchange-alt"></i> Round Trip</button>
-          <button class="tab-btn" onclick="window.location.href='error.html'"><i class="fas fa-arrow-right"></i> One Way</button>
-          <button class="tab-btn" onclick="window.location.href='error.html'"><i class="fas fa-users"></i> Multi-City</button>
+          <button class="tab-btn" onclick="window.location.href='error.html'"><i class="fas fa-arrow-right"></i> One
+            Way</button>
+          <button class="tab-btn" onclick="window.location.href='error.html'"><i class="fas fa-users"></i>
+            Multi-City</button>
         </div>
 
         <form class="widget-form" action="error.html" method="GET">
@@ -108,7 +110,8 @@
               <input type="text" placeholder="Departure City or Airport" value="New York (JFK)">
             </div>
 
-            <button type="button" class="swap-btn" aria-label="Swap Locations" onclick="window.location.href='error.html'">
+            <button type="button" class="swap-btn" aria-label="Swap Locations"
+              onclick="window.location.href='error.html'">
               <i class="fas fa-sync-alt"></i>
             </button>
 
@@ -127,9 +130,70 @@
               <label><i class="far fa-calendar-alt"></i> Return</label>
               <input type="date">
             </div>
-            <div class="input-group">
+            <div class="input-group passenger-class-target-slot">
               <label><i class="fas fa-user-friends"></i> Passengers & Class</label>
-              <div class="custom-select">1 Adult, Economy</div>
+
+              <div class="custom-select-wrapper passenger-dropdown-wrapper">
+                <div class="custom-select-btn" onclick="togglePassengerSelect(this, event)">
+                  <span id="passengerDisplayLabel" class="selected-dropdown-text">Select</span>
+                  <i class="fas fa-chevron-down arrow-indicator"></i>
+                </div>
+
+                <div class="custom-passenger-dropdown-card">
+
+                  <div class="counter-row-item">
+                    <div class="counter-label-meta">
+                      <strong>Adults</strong>
+                      <span class="sub-label">Age 12+</span>
+                    </div>
+                    <div class="counter-controls-core">
+                      <button type="button" class="counter-btn"
+                        onclick="modifyPassengerCount('adults', -1, event)">-</button>
+                      <span id="count-adults" class="count-value-node">1</span>
+                      <button type="button" class="counter-btn"
+                        onclick="modifyPassengerCount('adults', 1, event)">+</button>
+                    </div>
+                  </div>
+
+                  <div class="counter-row-item">
+                    <div class="counter-label-meta">
+                      <strong>Children</strong>
+                      <span class="sub-label">Age 2-11</span>
+                    </div>
+                    <div class="counter-controls-core">
+                      <button type="button" class="counter-btn"
+                        onclick="modifyPassengerCount('children', -1, event)">-</button>
+                      <span id="count-children" class="count-value-node">0</span>
+                      <button type="button" class="counter-btn"
+                        onclick="modifyPassengerCount('children', 1, event)">+</button>
+                    </div>
+                  </div>
+
+                  <hr class="dropdown-divider-line">
+
+                  <div class="cabin-class-selector-zone">
+                    <span class="class-zone-title">Travel Class Preference</span>
+                    <div class="cabin-options-vertical">
+                      <label class="premium-radio-row" onclick="selectCabinClass('Economy', event)">
+                        <input type="radio" name="cabinClassRadio" value="Economy" checked>
+                        <span class="custom-radio-circle"></span>
+                        <span class="radio-label-text">Economy</span>
+                      </label>
+                      <label class="premium-radio-row" onclick="selectCabinClass('Business', event)">
+                        <input type="radio" name="cabinClassRadio" value="Business">
+                        <span class="custom-radio-circle"></span>
+                        <span class="radio-label-text">Business Class</span>
+                      </label>
+                      <label class="premium-radio-row" onclick="selectCabinClass('First Class', event)">
+                        <input type="radio" name="cabinClassRadio" value="First Class">
+                        <span class="custom-radio-circle"></span>
+                        <span class="radio-label-text">First Class Suite</span>
+                      </label>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
             </div>
           </div>
 
@@ -163,7 +227,8 @@
             <h3>Live Schedule Matrix</h3>
           </div>
           <div class="board-filters">
-            <button type="button" class="filter-btn active" onclick="window.location.href='error.html'">Departures</button>
+            <button type="button" class="filter-btn active"
+              onclick="window.location.href='error.html'">Departures</button>
             <button type="button" class="filter-btn" onclick="window.location.href='error.html'">Arrivals</button>
           </div>
         </div>
@@ -328,8 +393,7 @@
 
         <div class="showcase-display-panel">
           <div class="display-img-wrapper">
-            <img src="./assets/img 1.webp"
-              alt="First Class Suite">
+            <img src="./assets/img 1.webp" alt="First Class Suite">
           </div>
           <div class="display-details-content">
             <h3>The SkyPass Private Suite</h3>
@@ -459,8 +523,7 @@
 
         <div class="dest-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="1000">
           <div class="dest-img-wrapper">
-            <img src="./assets/france.webp"
-              alt="Paris">
+            <img src="./assets/france.webp" alt="Paris">
             <span class="dest-tag">Trending</span>
           </div>
           <div class="dest-info">
@@ -478,8 +541,7 @@
 
         <div class="dest-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
           <div class="dest-img-wrapper">
-            <img src="./assets/japan.webp"
-              alt="Kyoto">
+            <img src="./assets/japan.webp" alt="Kyoto">
             <span class="dest-tag">Seasonal</span>
           </div>
           <div class="dest-info">
@@ -497,8 +559,7 @@
 
         <div class="dest-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
           <div class="dest-img-wrapper">
-            <img src="./assets/australia.webp"
-              alt="Sydney">
+            <img src="./assets/australia.webp" alt="Sydney">
             <span class="dest-tag">Popular</span>
           </div>
           <div class="dest-info">
@@ -516,8 +577,7 @@
 
         <div class="dest-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
           <div class="dest-img-wrapper">
-            <img src="./assets/uae.webp"
-              alt="Dubai">
+            <img src="./assets/uae.webp" alt="Dubai">
             <span class="dest-tag">Luxury</span>
           </div>
           <div class="dest-info">
@@ -543,104 +603,120 @@
 
 
 
-<section class="premium-testimonials-section" data-aos="fade-up" data-aos-duration="1000">
-  <div class="testimonial-ambient-glow"></div>
-  <div class="container testimonial-matrix-container">
+  <section class="premium-testimonials-section" data-aos="fade-up" data-aos-duration="1000">
+    <div class="testimonial-ambient-glow"></div>
+    <div class="container testimonial-matrix-container">
 
-    <!-- Premium Section Header Header Layer -->
-    <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
-      <span class="section-badge"><i class="fas fa-quote-right"></i> Guest Telemetry</span>
-      <h2>Refined Journeys, Shared Experiences</h2>
-      <p>Discover how global business operators, elite members, and corporate travel directors rate our real-time logistics networks.</p>
+      <!-- Premium Section Header Header Layer -->
+      <div class="section-header" data-aos="fade-up" data-aos-duration="1000">
+        <span class="section-badge"><i class="fas fa-quote-right"></i> Guest Telemetry</span>
+        <h2>Refined Journeys, Shared Experiences</h2>
+        <p>Discover how global business operators, elite members, and corporate travel directors rate our real-time
+          logistics networks.</p>
+      </div>
+
+      <!-- Asymmetric Grid Matrix Housing 4 Testimonials -->
+      <div class="testimonial-asymmetric-matrix">
+
+        <!-- Testimonial 1: Elite Corporate Tier -->
+        <div class="testimonial-luxe-card card-shadow-velvet card-glow-border featured-item" data-aos="zoom-in-up"
+          data-aos-delay="100">
+          <div class="quote-graphic-mark">“</div>
+          <div class="card-inner-flow">
+            <div class="testimonial-rating-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-review-text">The live telemetry tracking for baggage changed how our executive team
+              travels. Being able to view sorting updates at JFK straight from our dashboard app removed all arrival
+              friction entirely.</p>
+            <div class="reviewer-profile-footer">
+              <div class="avatar-housing">
+                <div class="avatar-initials tier-elite">EV</div>
+              </div>
+              <div class="reviewer-meta-details">
+                <strong>Elena Vance</strong>
+                <span>Logistics Director, Vance Media</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 2: Flight Status Tracking User -->
+        <div class="testimonial-luxe-card card-shadow-velvet card-glow-border" data-aos="zoom-in-up"
+          data-aos-delay="200">
+          <div class="quote-graphic-mark">“</div>
+          <div class="card-inner-flow">
+            <div class="testimonial-rating-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-review-text">During a severe weather alert approach into CDG, the instant priority
+              notification desk rebooked my connection before we even touched down. Absolute world-class resolution
+              mechanics.</p>
+            <div class="reviewer-profile-footer">
+              <div class="avatar-housing">
+                <div class="avatar-initials tier-club">MC</div>
+              </div>
+              <div class="reviewer-meta-details">
+                <strong>Marcus Sterling</strong>
+                <span>Enterprise Advisor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 3: Premium Seat Allocation User -->
+        <div class="testimonial-luxe-card card-shadow-velvet card-glow-border" data-aos="zoom-in-up"
+          data-aos-delay="300">
+          <div class="quote-graphic-mark">“</div>
+          <div class="card-inner-flow">
+            <div class="testimonial-rating-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-review-text">The cabin map interface is flawlessly executed. Snagging row 12A window
+              space and instantly upgrading to the enclosed first-class suites took under 30 seconds.</p>
+            <div class="reviewer-profile-footer">
+              <div class="avatar-housing">
+                <div class="avatar-initials tier-club">DK</div>
+              </div>
+              <div class="reviewer-meta-details">
+                <strong>Devon Knight</strong>
+                <span>Founder, K-Tech Global</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonial 4: Global Concierge User -->
+        <div class="testimonial-luxe-card card-shadow-velvet card-glow-border featured-item" data-aos="zoom-in-up"
+          data-aos-delay="400">
+          <div class="quote-graphic-mark">“</div>
+          <div class="card-inner-flow">
+            <div class="testimonial-rating-stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-review-text">Their secure custom forms and hidden dropdown mechanics work beautifully.
+              The elite support concierge solved a multi-passenger corporate routing allocation manifest error
+              instantly.</p>
+            <div class="reviewer-profile-footer">
+              <div class="avatar-housing">
+                <div class="avatar-initials tier-elite">SR</div>
+              </div>
+              <div class="reviewer-meta-details">
+                <strong>Sasha Reynolds</strong>
+                <span>Global Travel Lead</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
-
-    <!-- Asymmetric Grid Matrix Housing 4 Testimonials -->
-    <div class="testimonial-asymmetric-matrix">
-
-      <!-- Testimonial 1: Elite Corporate Tier -->
-      <div class="testimonial-luxe-card card-shadow-velvet card-glow-border featured-item" data-aos="zoom-in-up" data-aos-delay="100">
-        <div class="quote-graphic-mark">“</div>
-        <div class="card-inner-flow">
-          <div class="testimonial-rating-stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <p class="testimonial-review-text">The live telemetry tracking for baggage changed how our executive team travels. Being able to view sorting updates at JFK straight from our dashboard app removed all arrival friction entirely.</p>
-          <div class="reviewer-profile-footer">
-            <div class="avatar-housing">
-              <div class="avatar-initials tier-elite">EV</div>
-            </div>
-            <div class="reviewer-meta-details">
-              <strong>Elena Vance</strong>
-              <span>Logistics Director, Vance Media</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Testimonial 2: Flight Status Tracking User -->
-      <div class="testimonial-luxe-card card-shadow-velvet card-glow-border" data-aos="zoom-in-up" data-aos-delay="200">
-        <div class="quote-graphic-mark">“</div>
-        <div class="card-inner-flow">
-          <div class="testimonial-rating-stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <p class="testimonial-review-text">During a severe weather alert approach into CDG, the instant priority notification desk rebooked my connection before we even touched down. Absolute world-class resolution mechanics.</p>
-          <div class="reviewer-profile-footer">
-            <div class="avatar-housing">
-              <div class="avatar-initials tier-club">MC</div>
-            </div>
-            <div class="reviewer-meta-details">
-              <strong>Marcus Sterling</strong>
-              <span>Enterprise Advisor</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Testimonial 3: Premium Seat Allocation User -->
-      <div class="testimonial-luxe-card card-shadow-velvet card-glow-border" data-aos="zoom-in-up" data-aos-delay="300">
-        <div class="quote-graphic-mark">“</div>
-        <div class="card-inner-flow">
-          <div class="testimonial-rating-stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <p class="testimonial-review-text">The cabin map interface is flawlessly executed. Snagging row 12A window space and instantly upgrading to the enclosed first-class suites took under 30 seconds.</p>
-          <div class="reviewer-profile-footer">
-            <div class="avatar-housing">
-              <div class="avatar-initials tier-club">DK</div>
-            </div>
-            <div class="reviewer-meta-details">
-              <strong>Devon Knight</strong>
-              <span>Founder, K-Tech Global</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Testimonial 4: Global Concierge User -->
-      <div class="testimonial-luxe-card card-shadow-velvet card-glow-border featured-item" data-aos="zoom-in-up" data-aos-delay="400">
-        <div class="quote-graphic-mark">“</div>
-        <div class="card-inner-flow">
-          <div class="testimonial-rating-stars">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-          </div>
-          <p class="testimonial-review-text">Their secure custom forms and hidden dropdown mechanics work beautifully. The elite support concierge solved a multi-passenger corporate routing allocation manifest error instantly.</p>
-          <div class="reviewer-profile-footer">
-            <div class="avatar-housing">
-              <div class="avatar-initials tier-elite">SR</div>
-            </div>
-            <div class="reviewer-meta-details">
-              <strong>Sasha Reynolds</strong>
-              <span>Global Travel Lead</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
+  </section>
 
 
 
