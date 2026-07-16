@@ -5,7 +5,8 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--primary-main); /* Bound strictly to your deep background token */
+    background-color: var(--primary-main);
+    /* Bound strictly to your deep background token */
     color: var(--text-main);
     font-family: 'Inter', sans-serif;
 }
@@ -19,8 +20,10 @@ body {
 
 /* --- LEFT PANEL: SIDEBAR RAIL --- */
 .admin-sidebar-panel {
-    background-color: var(--bg-surface); /* Uses your surface variable token */
-    border-right: 1px dashed var(--border-color); /* Strict border outline alignment */
+    background-color: var(--bg-surface);
+    /* Uses your surface variable token */
+    border-right: 1px dashed var(--border-color);
+    /* Strict border outline alignment */
     padding: 2rem 1.5rem;
     display: flex;
     flex-direction: column;
@@ -40,7 +43,8 @@ body {
 }
 
 .brand-logo-icon {
-    color: var(--accent-color); /* Premium vivid green airline brand color accent */
+    color: var(--accent-color);
+    /* Premium vivid green airline brand color accent */
     font-size: 1.5rem;
     transform: rotate(-15deg);
 }
@@ -121,7 +125,8 @@ body {
 .telemetry-main-container {
     display: flex;
     flex-direction: column;
-    min-width: 0; /* Prevents layout map breakages on large grid components */
+    min-width: 0;
+    /* Prevents layout map breakages on large grid components */
 }
 
 /* GLOBAL HEADER SECTION: Locked at the top of the viewport frame */
@@ -325,33 +330,66 @@ body {
     font-size: 0.75rem;
     font-weight: 700;
 }
-.status-active { background: rgba(0, 230, 118, 0.1); color: var(--accent-color); }
-.status-completed { background: rgba(56, 161, 105, 0.1); color: #38a169; }
-.status-pending { background: rgba(236, 201, 75, 0.1); color: #ecc94b; }
+
+.status-active {
+    background: rgba(0, 230, 118, 0.1);
+    color: var(--accent-color);
+}
+
+.status-completed {
+    background: rgba(56, 161, 105, 0.1);
+    color: #38a169;
+}
+
+.status-pending {
+    background: rgba(236, 201, 75, 0.1);
+    color: #ecc94b;
+}
 
 /* ==========================================================================
    DYNAMIC 768PX MOBILE APP-BAR OVERHAUL MATRIX
    ========================================================================== */
 @media (max-width: 992px) {
-    .telemetry-cards-matrix { grid-template-columns: repeat(2, 1fr); }
+    .telemetry-cards-matrix {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-    .adminunit-dashboard-wrapper { grid-template-columns: 1fr; }
-    
-    .telemetry-header-row { 
-        padding: 1.5rem 1.25rem; 
-        flex-direction: column; 
-        align-items: flex-start; 
-        gap: 1rem; 
+    .adminunit-dashboard-wrapper {
+        grid-template-columns: 1fr;
     }
-    
-    .telemetry-header-row h1 { font-size: 2rem; }
-    .operator-identity-deck { flex-direction: column; width: 100%; gap: 0.5rem; }
-    .identity-capsule { width: 100%; box-sizing: border-box; }
-    .telemetry-viewport-stream { padding: 1.5rem 1.25rem 6rem 1.25rem; }
-    .telemetry-cards-matrix { grid-template-columns: 1fr; }
-    
+
+    .telemetry-header-row {
+        padding: 1.5rem 1.25rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .telemetry-header-row h1 {
+        font-size: 2rem;
+    }
+
+    .operator-identity-deck {
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+    }
+
+    .identity-capsule {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .telemetry-viewport-stream {
+        padding: 1.5rem 1.25rem 6rem 1.25rem;
+    }
+
+    .telemetry-cards-matrix {
+        grid-template-columns: 1fr;
+    }
+
     /* Transforms the sidebar component into a fixed app navigation bar */
     .admin-sidebar-panel {
         position: fixed;
@@ -365,10 +403,18 @@ body {
         padding: 0.5rem;
         top: auto;
     }
-    
-    .sidebar-brand-zone, .sidebar-footer-zone { display: none; }
-    .sidebar-nav-links { flex-direction: row; justify-content: space-around; width: 100%; }
-    
+
+    .sidebar-brand-zone,
+    .sidebar-footer-zone {
+        display: none;
+    }
+
+    .sidebar-nav-links {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+
     .sidebar-nav-links .nav-link-item {
         flex-direction: column;
         gap: 0.25rem;
@@ -379,8 +425,10 @@ body {
         background: transparent !important;
         border: none !important;
     }
-    
-    .sidebar-nav-links .nav-link-item i { font-size: 1.2rem; }
+
+    .sidebar-nav-links .nav-link-item i {
+        font-size: 1.2rem;
+    }
 }
 
 
@@ -432,12 +480,12 @@ body {
         gap: 0.75rem;
         padding: 1rem !important;
     }
-    
+
     .mini-secure-banner p {
         font-size: 0.85rem;
     }
 
-    .min-security-table th, 
+    .min-security-table th,
     .min-security-table td {
         padding: 0.75rem 0.5rem !important;
         font-size: 0.8rem !important;
@@ -540,7 +588,11 @@ body {
     height: 22px;
 }
 
-.premium-switch input { opacity: 0; width: 0; height: 0; }
+.premium-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
 
 .slider-toggle-node {
     position: absolute;
@@ -564,22 +616,25 @@ body {
     border-radius: 50%;
 }
 
-input:checked + .slider-toggle-node {
+input:checked+.slider-toggle-node {
     background-color: rgba(0, 230, 118, 0.1);
     border-color: var(--accent-color);
 }
 
-input:checked + .slider-toggle-node:before {
+input:checked+.slider-toggle-node:before {
     transform: translateX(22px);
     background-color: var(--accent-color);
 }
 
-input:disabled + .slider-toggle-node { opacity: 0.4; }
+input:disabled+.slider-toggle-node {
+    opacity: 0.4;
+}
 
 /* ==========================================================================
    DYNAMIC 768PX RESPONSIVE BREAKPOINT GRID OVERHAUL
    ========================================================================== */
 @media (max-width: 768px) {
+
     .security-alert-banner,
     .rbac-identity-banner {
         flex-direction: column;
@@ -594,7 +649,7 @@ input:disabled + .slider-toggle-node { opacity: 0.4; }
         width: 100%;
     }
 
-    .partial-security-table th, 
+    .partial-security-table th,
     .partial-security-table td,
     .partial-variables-table th,
     .partial-variables-table td {

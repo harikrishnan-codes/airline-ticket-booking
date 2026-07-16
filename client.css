@@ -319,33 +319,64 @@ body {
     font-size: 0.75rem;
     font-weight: 700;
 }
-.status-active { background: rgba(0, 230, 118, 0.1); color: var(--accent-color); }
-.status-completed { background: rgba(56, 161, 105, 0.1); color: #38a169; }
-.status-pending { background: rgba(236, 201, 75, 0.1); color: #ecc94b; }
+
+.status-active {
+    background: rgba(0, 230, 118, 0.1);
+    color: var(--accent-color);
+}
+
+.status-completed {
+    background: rgba(56, 161, 105, 0.1);
+    color: #38a169;
+}
+
+.status-pending {
+    background: rgba(236, 201, 75, 0.1);
+    color: #ecc94b;
+}
 
 /* ==========================================================================
    DYNAMIC 768PX RESPONSIVE MATRIX OVERHAUL
    ========================================================================== */
 @media (max-width: 992px) {
-    .telemetry-cards-matrix { grid-template-columns: repeat(2, 1fr); }
+    .telemetry-cards-matrix {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 768px) {
-    .client-dashboard-wrapper { grid-template-columns: 1fr; }
-    
-    .telemetry-header-row { 
-        padding: 1.5rem 1.25rem; 
-        flex-direction: column; 
-        align-items: flex-start; 
-        gap: 1rem; 
+    .client-dashboard-wrapper {
+        grid-template-columns: 1fr;
     }
-    
-    .telemetry-header-row h1 { font-size: 2rem; }
-    .operator-identity-deck { width: 100%; }
-    .identity-capsule { width: 100%; box-sizing: border-box; }
-    .telemetry-viewport-stream { padding: 1.5rem 1.25rem 6rem 1.25rem; }
-    .telemetry-cards-matrix { grid-template-columns: 1fr; }
-    
+
+    .telemetry-header-row {
+        padding: 1.5rem 1.25rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .telemetry-header-row h1 {
+        font-size: 2rem;
+    }
+
+    .operator-identity-deck {
+        width: 100%;
+    }
+
+    .identity-capsule {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .telemetry-viewport-stream {
+        padding: 1.5rem 1.25rem 6rem 1.25rem;
+    }
+
+    .telemetry-cards-matrix {
+        grid-template-columns: 1fr;
+    }
+
     /* Converts sidebar to fixed app bottom toolbar */
     .client-sidebar-panel {
         position: fixed;
@@ -359,10 +390,18 @@ body {
         padding: 0.5rem;
         top: auto;
     }
-    
-    .sidebar-brand-zone, .sidebar-footer-zone { display: none; }
-    .sidebar-nav-links { flex-direction: row; justify-content: space-around; width: 100%; }
-    
+
+    .sidebar-brand-zone,
+    .sidebar-footer-zone {
+        display: none;
+    }
+
+    .sidebar-nav-links {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+    }
+
     .sidebar-nav-links .nav-link-item {
         flex-direction: column;
         gap: 0.25rem;
@@ -373,8 +412,10 @@ body {
         background: transparent !important;
         border: none !important;
     }
-    
-    .sidebar-nav-links .nav-link-item i { font-size: 1.2rem; }
+
+    .sidebar-nav-links .nav-link-item i {
+        font-size: 1.2rem;
+    }
 }
 
 
@@ -405,14 +446,15 @@ body {
    DYNAMIC 768PX RESPONSIVE MATRIX OVERHAUL
    ========================================================================== */
 @media (max-width: 992px) {
-    .rewards-cards-layout { 
-        grid-template-columns: repeat(2, 1fr) !important; 
+    .rewards-cards-layout {
+        grid-template-columns: repeat(2, 1fr) !important;
     }
 }
 
 @media (max-width: 768px) {
     .rewards-cards-layout {
-        grid-template-columns: 1fr !important; /* Stacks cards vertically on narrow devices */
+        grid-template-columns: 1fr !important;
+        /* Stacks cards vertically on narrow devices */
         gap: 1rem;
     }
 
@@ -436,10 +478,10 @@ body {
     /* Column Optimization to ensure optimal spacing on micro viewports */
     .rewards-matrix-table th:nth-child(3),
     .rewards-matrix-table td:nth-child(3) {
-        display: none; 
+        display: none;
     }
 
-    .rewards-matrix-table th, 
+    .rewards-matrix-table th,
     .rewards-matrix-table td {
         padding: 0.85rem 0.5rem !important;
         font-size: 0.8rem !important;
@@ -451,9 +493,8 @@ body {
 
 
 
-
 /* ==========================================================================
-   CLIENT PROFILE SETTINGS - FIXED PREMIUM THEME
+   CLIENT PROFILE LAYOUT DESIGN SYSTEM
    ========================================================================== */
 
 .profile-settings-card {
@@ -463,7 +504,6 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-/* Header & Badge Layout Fix */
 .profile-card-header {
     display: flex;
     justify-content: space-between;
@@ -477,7 +517,7 @@ body {
     margin: 0 0 0.5rem 0;
     font-size: 1.4rem;
     font-weight: 700;
-    color: #0f2942; /* Deep Navy Title */
+    color: #0f2942;
 }
 
 .profile-desc-text {
@@ -487,7 +527,6 @@ body {
     line-height: 1.5;
 }
 
-/* Premium Badge Styling */
 .profile-card-header .badge.status-active {
     background-color: #e8f5e9 !important;
     color: #2e7d32 !important;
@@ -501,7 +540,6 @@ body {
     white-space: nowrap;
 }
 
-/* Form Controls & Layout Elements */
 .profile-luxe-form-grid {
     display: flex;
     flex-direction: column;
@@ -531,7 +569,7 @@ body {
 .profile-input-housing input {
     width: 100%;
     padding: 1rem 1.25rem;
-    background-color: #f1f4f8 !important; /* Soft Input Light Grey */
+    background-color: #f1f4f8 !important;
     border: 1px solid #dbe3ec;
     border-radius: 12px;
     color: #0f2942;
@@ -554,7 +592,6 @@ body {
     cursor: not-allowed;
 }
 
-/* Save Button Placement */
 .profile-form-footer-action {
     display: flex;
     justify-content: flex-end;
@@ -562,7 +599,7 @@ body {
 }
 
 .btn-profile-save {
-    background-color: #2b7de9 !important; /* SkyPass Accent Blue */
+    background-color: #2b7de9 !important;
     color: #ffffff !important;
     padding: 1rem 2.5rem;
     border: none;
@@ -588,28 +625,15 @@ body {
     }
 
     .profile-card-header {
-        flex-direction: column-reverse; /* Puts badge below text or lets it stack safely */
+        flex-direction: column-reverse;
         align-items: flex-start;
         gap: 1rem;
         margin-bottom: 2rem;
     }
 
-    .profile-card-header h3 {
-        font-size: 1.2rem;
-    }
-
-    .profile-desc-text {
-        font-size: 0.85rem !important;
-    }
-
     .form-input-splitter {
-        grid-template-columns: 1fr; /* Stacks the two columns layout vertically */
+        grid-template-columns: 1fr; /* Collapses form panels cleanly into unified columns grid stack */
         gap: 1.25rem;
-    }
-
-    .profile-input-housing input {
-        padding: 0.85rem 1rem;
-        font-size: 0.9rem;
     }
 
     .profile-form-footer-action {
