@@ -66,8 +66,6 @@
 
 
 
-
-
   <section class="hero-section">
     <div class="hero-overlay"></div>
 
@@ -117,27 +115,30 @@
 
             <div class="input-group">
               <label><i class="fas fa-plane-arrival"></i> To</label>
-              <input type="text" placeholder="Where to?">
+              <input type="text" placeholder="Where to?" required>
             </div>
           </div>
 
           <div class="form-row dates-row">
             <div class="input-group">
               <label><i class="far fa-calendar-alt"></i> Depart</label>
-              <input type="date">
+              <input type="date" required>
             </div>
             <div class="input-group">
               <label><i class="far fa-calendar-alt"></i> Return</label>
-              <input type="date">
+              <input type="date" required>
             </div>
             <div class="input-group passenger-class-target-slot">
               <label><i class="fas fa-user-friends"></i> Passengers & Class</label>
 
-              <div class="custom-select-wrapper passenger-dropdown-wrapper">
-                <div class="custom-select-btn" onclick="togglePassengerSelect(this, event)">
-                  <span id="passengerDisplayLabel" class="selected-dropdown-text">Select</span>
-                  <i class="fas fa-chevron-down arrow-indicator"></i>
+              <div class="passenger-dropdown-wrapper">
+                <div class="custom-select" onclick="togglePassengerSelect(this, event)">
+                  <span id="passengerDisplayLabel">Select</span>
+                  <i class="fas fa-chevron-down"></i>
                 </div>
+
+                <input type="text" id="passengerValidationBridge" name="passenger_selection" required
+                  style="position: absolute; opacity: 0; width: 0; height: 0; pointer-events: none;">
 
                 <div class="custom-passenger-dropdown-card">
 
@@ -209,7 +210,6 @@
       </div>
     </div>
   </section>
-
 
 
 

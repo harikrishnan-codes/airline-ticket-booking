@@ -20,28 +20,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-// உலகளாவிய மாறிகள் நிலைத்தன்மை
 let passengerState = {
     adults: 1,
     children: 0,
     cabinClass: 'Economy'
 };
 
-// கஸ்டம் டிராப்டவுனை ஆன்/ஆஃப் செய்யும் செயல்பாடு
 function togglePassengerSelect(element, event) {
     event.stopPropagation();
     element.parentElement.classList.toggle('dropdown-active');
 }
 
-// பிளஸ்/மைனஸ் கணக்கீட்டு மேலாண்மை
 function modifyPassengerCount(type, val, event) {
-    event.stopPropagation(); // டிராப்டவுன் மூடுவதைத் தடுக்கிறது
-    
+    event.stopPropagation();
     let currentVal = passengerState[type];
     let newVal = currentVal + val;
 
-    // வணிகக் கட்டுப்பாடுகள் (குறைந்தபட்சம் 1 பெரியவர் இருக்க வேண்டும், நெகட்டிவ் எண்கள் வரக்கூடாது)
     if (type === 'adults' && newVal < 1) return;
     if (type === 'children' && newVal < 0) return;
     
@@ -51,13 +45,13 @@ function modifyPassengerCount(type, val, event) {
     updatePassengerDisplayLabel();
 }
 
- function selectCabinClass(className, event) {
+function selectCabinClass(className, event) {
     event.stopPropagation();
     passengerState.cabinClass = className;
     updatePassengerDisplayLabel();
 }
 
- function updatePassengerDisplayLabel() {
+function updatePassengerDisplayLabel() {
     const totalPassengers = passengerState.adults + passengerState.children;
     let passengerText = `${totalPassengers} Passenger${totalPassengers > 1 ? 's' : ''}`;
     
@@ -65,16 +59,23 @@ function modifyPassengerCount(type, val, event) {
         passengerText = `${passengerState.adults} Adult${passengerState.adults > 1 ? 's' : ''}`;
     }
     
-     document.getElementById('passengerDisplayLabel').textContent = `${passengerText}, ${passengerState.cabinClass}`;
+    const finalSelectionText = `${passengerText}, ${passengerState.cabinClass}`;
+    
+     document.getElementById('passengerDisplayLabel').textContent = finalSelectionText;
+    
+     const validationInput = document.getElementById('passengerValidationBridge');
+    validationInput.value = finalSelectionText;
 }
 
- document.addEventListener('click', () => {
+document.addEventListener('click', () => {
     document.querySelectorAll('.passenger-dropdown-wrapper').forEach(el => {
         el.classList.remove('dropdown-active');
     });
 });
 
-
+ document.addEventListener('DOMContentLoaded', () => {
+    updatePassengerDisplayLabel();
+});
 
 
 

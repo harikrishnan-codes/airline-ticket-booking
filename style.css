@@ -250,10 +250,6 @@ h1 {
 
 
 
-
-/* ==========================================================================
-   HERO SECTION CORE INFRASTRUCTURE
-   ========================================================================== */
 .hero-section {
   position: relative;
   min-height: 85vh;
@@ -263,7 +259,8 @@ h1 {
   background-size: cover;
   background-position: center;
   padding: 6rem 0;
-  overflow: hidden;
+  overflow: visible !important; 
+  z-index: 30 !important; 
 }
 
 .hero-container {
@@ -332,9 +329,11 @@ h1 {
   margin-bottom: 0;
 }
 
-/* ==========================================================================
-   BOOKING WIDGET COMPONENT
-   ========================================================================== */
+.flight-status-section {
+  position: relative;
+  z-index: 10 !important; 
+}
+
 .booking-widget {
   background-color: var(--bg-surface);
   border-radius: 20px;
@@ -342,6 +341,9 @@ h1 {
   padding: 2.5rem;
   width: 100%;
   border: 1px solid var(--border-color);
+  position: relative;
+  overflow: visible !important;
+  z-index: 40 !important;
 }
 
 .widget-tabs {
@@ -386,18 +388,26 @@ h1 {
   display: flex;
   gap: 1.25rem;
   width: 100%;
+  position: relative;
+  overflow: visible !important;
 }
 
 .inputs-row {
   position: relative;
   align-items: flex-end;
+  overflow: visible !important;
 }
-
 .input-group {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+}
+
+.passenger-class-target-slot {
+  position: relative;
+  overflow: visible !important;
+  z-index: 50 !important;
 }
 
 .input-group label {
@@ -494,9 +504,6 @@ h1 {
   box-shadow: 0 8px 20px rgba(26, 54, 93, 0.2);
 }
 
-/* ==========================================================================
-   CUSTOM PASSENGER SELECTION DROPDOWN ENGINE
-   ========================================================================== */
 .passenger-dropdown-wrapper {
   position: relative;
   width: 100%;
@@ -504,15 +511,16 @@ h1 {
 
 .custom-passenger-dropdown-card {
   position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  width: 280px;
-  background-color: #ffffff;
-  border: 1px solid var(--border-color, #dbe3ec);
+  top: calc(100% + 6px);
+  right: 0;
+  left: auto;
+  width: 290px;
+  background-color: #ffffff !important;
+  border: 1px solid #dbe3ec;
   border-radius: 16px;
   padding: 1.25rem;
-  box-shadow: 0 15px 35px rgba(15, 41, 66, 0.15);
-  z-index: 999;
+  box-shadow: 0 20px 45px rgba(15, 35, 71, 0.3);
+  z-index: 999999 !important;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -649,9 +657,6 @@ input:checked + .custom-radio-circle::after {
   font-weight: 600;
 }
 
-/* ==========================================================================
-   DYNAMIC RESPONSIVE BREAKPOINT OVERHAUL (768px Matrix)
-   ========================================================================== */
 @media (max-width: 768px) {
   .hero-section {
     padding: 4rem 0;
@@ -727,13 +732,13 @@ input:checked + .custom-radio-circle::after {
     justify-content: center;
   }
 
-  /* Custom Passenger Dropdown Responsive Collapse Engine */
   .custom-passenger-dropdown-card {
     width: 100%;
     box-sizing: border-box;
+    left: 0;
+    right: auto;
   }
 }
-
 
 
 
@@ -743,7 +748,7 @@ input:checked + .custom-radio-circle::after {
   background-color: var(--bg-main);
   position: relative;
   z-index: 10;
-}
+ }
 
 .status-board-container {
   background-color: var(--bg-surface);
