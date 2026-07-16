@@ -382,3 +382,223 @@ body {
     
     .sidebar-nav-links .nav-link-item i { font-size: 1.2rem; }
 }
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   MINIMAL SECURITY LOGS MODULE STYLES & 768PX RESPONSIVENESS
+   ========================================================================== */
+
+.mini-secure-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2rem !important;
+    margin-bottom: 1.5rem;
+}
+
+.mini-secure-banner p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.text-accent {
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+}
+
+.min-security-table code {
+    background: var(--bg-main);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   768PX MOBILE RESPONSIVE MEDIA QUERY
+   ========================================================================== */
+@media (max-width: 768px) {
+    .mini-secure-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 1rem !important;
+    }
+    
+    .mini-secure-banner p {
+        font-size: 0.85rem;
+    }
+
+    .min-security-table th, 
+    .min-security-table td {
+        padding: 0.75rem 0.5rem !important;
+        font-size: 0.8rem !important;
+    }
+}
+
+
+
+
+
+
+
+/* ==========================================================================
+   PARTIAL DECK COMPONENTS & 768PX RESPONSIVENESS MATRIX
+   ========================================================================== */
+
+/* --- Pane 3: Security Layout Assets --- */
+.security-alert-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.banner-core-text {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.secure-pulse-icon {
+    font-size: 1.75rem;
+    color: var(--accent-color);
+}
+
+.partial-security-table code,
+.partial-variables-table code {
+    background-color: var(--bg-main);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    color: var(--text-main);
+    font-family: monospace;
+    border: 1px solid var(--border-color);
+}
+
+.status-deny {
+    background: rgba(255, 82, 82, 0.1);
+    color: #ff5252;
+}
+
+/* --- Pane 4: RBAC & Variables Elements --- */
+.rbac-identity-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, var(--bg-surface) 0%, var(--bg-main) 100%) !important;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+.rbac-banner-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.rbac-secure-icon {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    background-color: var(--bg-main);
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--border-color);
+}
+
+.rbac-role-indicator {
+    padding: 0.5rem 1.25rem;
+    border-radius: 30px;
+    font-weight: 800;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.active-role-token {
+    background-color: var(--accent-color);
+    color: var(--primary-main);
+}
+
+/* Premium Toggles System */
+.premium-switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 22px;
+}
+
+.premium-switch input { opacity: 0; width: 0; height: 0; }
+
+.slider-toggle-node {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    transition: .3s ease;
+    border-radius: 22px;
+}
+
+.slider-toggle-node:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--text-muted);
+    transition: .3s ease;
+    border-radius: 50%;
+}
+
+input:checked + .slider-toggle-node {
+    background-color: rgba(0, 230, 118, 0.1);
+    border-color: var(--accent-color);
+}
+
+input:checked + .slider-toggle-node:before {
+    transform: translateX(22px);
+    background-color: var(--accent-color);
+}
+
+input:disabled + .slider-toggle-node { opacity: 0.4; }
+
+/* ==========================================================================
+   DYNAMIC 768PX RESPONSIVE BREAKPOINT GRID OVERHAUL
+   ========================================================================== */
+@media (max-width: 768px) {
+    .security-alert-banner,
+    .rbac-identity-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.25rem !important;
+    }
+
+    .rbac-role-indicator {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    .partial-security-table th, 
+    .partial-security-table td,
+    .partial-variables-table th,
+    .partial-variables-table td {
+        padding: 0.85rem 0.5rem !important;
+        font-size: 0.8rem !important;
+    }
+}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyPass Admin - Flight Operations Manifest</title>
+    <title>Admin - Flight Operations Manifest</title>
     <link rel="icon" href="./assets/bg remove.webp">
 
     <!-- Stylesheet Matrix -->
@@ -175,25 +175,132 @@
                     </div>
                 </div>
 
-                <!-- PANE 3: SECURITY LOGS -->
                 <div class="dashboard-content-section" id="security-pane" data-title="Security Log Telemetry">
-                    <div class="dashboard-table-card">
-                        <h3>System Access Incidents</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">All tracking metrics
-                            indicate active system firewalls are running securely. Zero security breaches detected
-                            within this server instance.</p>
-                    </div>
-                </div>
+    
+    <div class="dashboard-table-card mini-secure-banner">
+        <p><i class="fas fa-shield-alt text-accent"></i> Core Network Status: <strong>FIREWALL SECURE</strong></p>
+        <span class="badge status-completed">Passed</span>
+    </div>
 
-                <!-- PANE 4: SYSTEM VARIABLES -->
-                <div class="dashboard-content-section" id="variables-pane" data-title="System Control Variables">
-                    <div class="dashboard-table-card">
-                        <h3>Global Environment Parameters</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin: 0;">Theme configuration
-                            parameters successfully verified and locked into your custom root stylesheet color values.
-                        </p>
-                    </div>
-                </div>
+    <div class="dashboard-table-card">
+        <div class="table-header-row">
+            <h4>Access Logs</h4>
+        </div>
+        <div class="table-responsive-wrapper">
+            <table class="premium-data-table min-security-table">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Node IP</th>
+                        <th>Event Profile</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>09:34 UTC</td>
+                        <td><code>192.168.1.45</code></td>
+                        <td><span class="badge status-active">Admin Login</span></td>
+                    </tr>
+                    <tr>
+                        <td>09:28 UTC</td>
+                        <td><code>185.220.101.3</code></td>
+                        <td><span class="badge status-pending" style="background:rgba(255,82,82,0.1); color:#ff5252;">Blocked</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+                <div class="dashboard-content-section" id="security-pane" data-title="Security Log Telemetry">
+    
+    <div class="dashboard-table-card security-alert-banner">
+        <div class="banner-core-text">
+            <i class="fas fa-shield-halved secure-pulse-icon"></i>
+            <div>
+                <h4>Firewall Node Status</h4>
+                <p style="color: var(--text-muted); margin: 0; font-size: 0.85rem;">System actively mitigation threats across active airline vectors.</p>
+            </div>
+        </div>
+        <span class="badge status-completed">100% Secure</span>
+    </div>
+
+    <div class="dashboard-table-card">
+        <div class="table-responsive-wrapper">
+            <table class="premium-data-table partial-security-table">
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>IP Address</th>
+                        <th>Security Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>09:34:12 UTC</strong></td>
+                        <td><code>192.168.1.45</code></td>
+                        <td><span class="badge status-active">Admin Login Passed</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>09:28:44 UTC</strong></td>
+                        <td><code>185.220.101.3</code></td>
+                        <td><span class="badge status-deny">IP Threat Blocked</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-content-section" id="variables-pane" data-title="System Control Variables">
+    
+    <div class="dashboard-table-card rbac-identity-banner">
+        <div class="rbac-banner-meta">
+            <i class="fas fa-fingerprint rbac-secure-icon"></i>
+            <div>
+                <h3>Active Session Matrix</h3>
+                <p style="color: var(--text-muted); margin: 0; font-size: 0.85rem;">Token bound strictly to verified authentication deployment parameters.</p>
+            </div>
+        </div>
+        <span class="rbac-role-indicator active-role-token" id="sessionRoleToken">Loading...</span>
+    </div>
+
+    <div class="dashboard-table-card">
+        <div class="table-responsive-wrapper">
+            <table class="premium-data-table partial-variables-table">
+                <thead>
+                    <tr>
+                        <th>Variable Key</th>
+                        <th>Mapped Value</th>
+                        <th>Switch Control</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>AUTH_TOKEN_EXPIRY</code></td>
+                        <td><code>86400s (24h)</code></td>
+                        <td>
+                            <label class="premium-switch">
+                                <input type="checkbox" checked disabled>
+                                <span class="slider-toggle-node"></span>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>MAINTENANCE_LOCKOUT</code></td>
+                        <td><code>FALSE</code></td>
+                        <td>
+                            <label class="premium-switch">
+                                <input type="checkbox">
+                                <span class="slider-toggle-node"></span>
+                            </label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
             </main>
         </div>

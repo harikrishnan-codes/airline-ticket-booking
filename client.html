@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyPass Client Portal - My Travel Workspace</title>
+    <title>Client Portal - My Travel Workspace</title>
     <link rel="icon" href="./assets/bg remove.webp">
 
     <!-- Stylesheet Matrix -->
@@ -151,24 +151,107 @@
 
                 </div>
 
-                <!-- PANE 2: REWARDS & CLUB ACCREDITATION -->
                 <div class="dashboard-content-section" id="rewards-pane" data-title="SkyPass Points Matrix">
-                    <div class="dashboard-table-card">
-                        <h3>Points Loyalty Ledger</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0;">You have unlocked
-                            **10% bonus points multipliers** by registering your transactions through the programmatic
-                            direct flight platform.</p>
-                    </div>
-                </div>
+    
+    <div class="telemetry-cards-matrix rewards-cards-layout" data-aos="fade-up">
+        <div class="telemetry-luxe-card">
+            <div class="card-top-header-line"><h4>Available Balance</h4><i class="fas fa-coins" style="color: var(--accent-color);"></i></div>
+            <div class="card-center-telemetry-metrics"><h3>38,450</h3><p>Valid points eligible for immediate flight redemption.</p></div>
+        </div>
+        <div class="telemetry-luxe-card">
+            <div class="card-top-header-line"><h4>Active Multiplier</h4><i class="fas fa-chart-line-up" style="color: #00b0ff;"></i></div>
+            <div class="card-center-telemetry-metrics"><h3>1.10x</h3><p>10% bonus enabled via programmatic direct platforms.</p></div>
+        </div>
+        <div class="telemetry-luxe-card">
+            <div class="card-top-header-line"><h4>Next Tier Target</h4><i class="fas fa-gem" style="color: #d89b4e;"></i></div>
+            <div class="card-center-telemetry-metrics"><h3>11,550</h3><p>Points required to unlock Platinum Elite status.</p></div>
+        </div>
+    </div>
 
-                <!-- PANE 3: PROFILE INTERFACE -->
+    <div class="dashboard-table-card loyalty-ledger-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="table-header-row">
+            <h3>Points Loyalty Ledger</h3>
+            <span class="badge status-completed"><i class="fas fa-star"></i> Elite Member</span>
+        </div>
+        
+        <div class="table-responsive-wrapper">
+            <table class="premium-data-table rewards-matrix-table">
+                <thead>
+                    <tr>
+                        <th>Transaction Date</th>
+                        <th>Activity Profile</th>
+                        <th>Base Value</th>
+                        <th>Bonus Yield</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>12 Jul, 2026</strong></td>
+                        <td>Flight Booking (JFK &rarr; CDG)</td>
+                        <td>4,500 pts</td>
+                        <td><span class="text-grow">+450 pts</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>08 Jun, 2026</strong></td>
+                        <td>Hotel Partner Accrual</td>
+                        <td>1,200 pts</td>
+                        <td><span class="text-muted">--</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>24 May, 2026</strong></td>
+                        <td>Flight Booking (LHR &rarr; JFK)</td>
+                        <td>3,800 pts</td>
+                        <td><span class="text-grow">+380 pts</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
                 <div class="dashboard-content-section" id="profile-pane" data-title="Client Profile Settings">
-                    <div class="dashboard-table-card">
-                        <h3>Personal Identification Parameters</h3>
-                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 0;">Update security keys,
-                            passport data arrays, and payment records securely here.</p>
-                    </div>
+    
+    <div class="dashboard-table-card profile-settings-card">
+        <div class="profile-card-header">
+            <div class="title-area">
+                <h3>Personal Identification Parameters</h3>
+                <p class="profile-desc-text">Update encryption security keys, passport data arrays, and global travel records securely here:</p>
+            </div>
+            <span class="badge status-active"><i class="fas fa-shield-alt"></i> Security Active</span>
+        </div>
+
+        <form id="clientProfileUpdateForm" class="profile-luxe-form-grid" onsubmit="event.preventDefault(); alert('Parameters updated.');">
+            
+            <div class="form-input-splitter">
+                <div class="profile-input-housing">
+                    <label>Passport Number ID</label>
+                    <input type="text" value="A-7894102" required>
                 </div>
+                <div class="profile-input-housing">
+                    <label>Nationality Vector</label>
+                    <input type="text" value="United States" required>
+                </div>
+            </div>
+
+            <div class="form-input-splitter">
+                <div class="profile-input-housing">
+                    <label>Emergency Contact Rail</label>
+                    <input type="text" value="+1 (555) 019-2834" required>
+                </div>
+                <div class="profile-input-housing">
+                    <label>Preferred Cabin Tier Mapping</label>
+                    <input type="text" value="First Class Suites" readonly class="input-readonly">
+                </div>
+            </div>
+
+            <div class="profile-form-footer-action">
+                <button type="submit" class="btn btn-profile-save">Commit Parameter Updates</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
 
             </main>
         </div>
